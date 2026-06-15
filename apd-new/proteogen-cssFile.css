@@ -391,6 +391,7 @@
             font-size: 0.95rem;
             position: relative;
             transition: color 0.3s ease;
+            white-space: nowrap;
         }
 
         .nav-links a::after {
@@ -1859,6 +1860,10 @@
                 font-size: 0.9rem;
             }
 
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+
             .hero {
                 grid-template-columns: 1fr;
                 gap: 3rem;
@@ -1920,7 +1925,19 @@
         /* Large Tablets and Small Laptops (1025px - 1280px) */
         @media (min-width: 1025px) and (max-width: 1280px) {
             nav {
-                padding: 1.2rem 2.5rem;
+                padding: 1.2rem 2rem;
+            }
+
+            .nav-links {
+                gap: 1.2rem;
+            }
+
+            .nav-links a {
+                font-size: 0.8rem;
+            }
+
+            .nav-cta {
+                padding: 0.7rem 1.2rem;
             }
 
             .hero {
@@ -1949,7 +1966,25 @@
         }
 
         /* Desktop (1281px and above) - Default styles apply */
-        @media (min-width: 1281px) {
+        @media (min-width: 1281px) and (max-width: 1440px) {
+            nav {
+                padding: 1.2rem 2rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+
+            .nav-cta {
+                padding: 0.7rem 1.4rem;
+            }
+        }
+
+        @media (min-width: 1441px) {
             .hero {
                 grid-template-columns: 1fr 1.4fr;
             }
