@@ -92,9 +92,9 @@
 
             logoImages.forEach(element => {
                 if (element.tagName === 'IMG') {
-                    element.src = theme === 'light' ? 'images/Logo-dark.png' : 'images/Logo.jpeg';
+                    element.src = theme === 'light' ? 'images/Logo.jpeg' : 'images/Logo-dark.png';
                 } else if (element.tagName === 'SOURCE') {
-                    element.srcset = theme === 'light' ? 'images/Logo-dark.png' : 'images/Logo.jpeg';
+                    element.srcset = theme === 'light' ? 'images/Logo.jpeg' : 'images/Logo-dark.png';
                 }
             });
         }
