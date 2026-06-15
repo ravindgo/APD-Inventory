@@ -991,7 +991,7 @@
                         e.preventDefault();
                         
                         const downloadName = link.closest('.download-row').querySelector('h4').textContent;
-                        const category = link.closest('.downloads-category').querySelector('h3').textContent;
+                        const category = link.closest('.downloads-accordion-item').querySelector('h3').textContent;
                         
                         this.handleDownload(downloadName, category, link);
                     });
@@ -1710,8 +1710,8 @@
         // Add click event listeners to accordion headers
         accordionHeaders.forEach(header => {
             header.addEventListener('click', function() {
-                const accordionItem = this.closest('.accordion-item');
-                const isCurrentlyActive = accordionItem.classList.contains('active');
+                const accordionItem = this.closest('.accordion-item') || this.closest('.downloads-accordion-item');
+                const isCurrentlyActive = accordionItem && accordionItem.classList.contains('active');
                 
                 // Close all accordion items (exclusive behavior)
                 accordionItems.forEach(item => {
@@ -1771,7 +1771,7 @@
         // Add hover effects for accordion headers
         accordionHeaders.forEach(header => {
             header.addEventListener('mouseenter', function() {
-                if (!this.closest('.accordion-item').classList.contains('active')) {
+                if (!(this.closest('.accordion-item') || this.closest('.downloads-accordion-item')).classList.contains('active')) {
                     this.style.transform = 'translateY(-2px)';
                 }
             });
@@ -1856,7 +1856,7 @@
         accordionHeaders.forEach(header => {
             header.addEventListener('click', function() {
                 const productName = this.querySelector('h3').textContent;
-                const isOpening = !this.closest('.accordion-item').classList.contains('active');
+                const isOpening = !(this.closest('.accordion-item') || this.closest('.downloads-accordion-item')).classList.contains('active');
                 
                 // Placeholder for analytics tracking
                 console.log(`Accordion ${isOpening ? 'opened' : 'closed'}: ${productName}`);
@@ -4482,40 +4482,50 @@
                 
                 contactForm.addEventListener('submit', function(e) {
                     e.preventDefault();
-                    
-                    try {
-                        // Serialize form data (equivalent to jQuery's serialize())
-                        const formData = new FormData(contactForm);
-                        const serializedData = new URLSearchParams(formData).toString();
-                        
-                        // Reset form (equivalent to jQuery's trigger("reset"))
-                        contactForm.reset();
-                        
-                        // AJAX call (equivalent to jQuery's $.ajax())
-                        fetch('send_mail.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded',
-                            },
-                            body: serializedData
-                        })
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Network response was not ok');
+
+                    const submitBtn = contactForm.querySelector('[type="submit"]');
+                    const btnText   = submitBtn ? submitBtn.querySelector('.btn-text') : null;
+                    const btnLoad   = submitBtn ? submitBtn.querySelector('.btn-loading') : null;
+                    const msgEl     = document.getElementById('msg');
+                    const successEl = document.getElementById('successMessage');
+
+                    // Show loading state
+                    if (submitBtn) submitBtn.disabled = true;
+                    if (btnText)   btnText.style.display   = 'none';
+                    if (btnLoad)   btnLoad.style.display   = 'flex';
+                    if (msgEl)     msgEl.textContent = '';
+
+                    const formData      = new FormData(contactForm);
+                    const serializedData = new URLSearchParams(formData).toString();
+
+                    fetch('send_mail.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: serializedData
+                    })
+                    .then(response => response.json().then(data => ({ ok: response.ok, data })))
+                    .then(({ ok, data }) => {
+                        if (ok && data.success) {
+                            contactForm.reset();
+                            if (successEl) successEl.style.display = 'block';
+                        } else {
+                            if (msgEl) {
+                                msgEl.textContent = data.message || 'Submission failed. Please try again.';
+                                msgEl.style.color = '#c0392b';
                             }
-                            return response.json();
-                        })
-                        .then(data => {
-                            console.log('Form submitted successfully:', data);
-                        })
-                        .catch(error => {
-                            console.log('Form submission error:', error);
-                            alert("Form submission failed. Please try again.");
-                        });
-                    } catch (error) {
-                        console.error('Error processing form:', error);
-                        alert("An error occurred while processing the form.");
-                    }
+                        }
+                    })
+                    .catch(() => {
+                        if (msgEl) {
+                            msgEl.textContent = 'Network error. Please check your connection and try again.';
+                            msgEl.style.color = '#c0392b';
+                        }
+                    })
+                    .finally(() => {
+                        if (submitBtn) submitBtn.disabled = false;
+                        if (btnText)   btnText.style.display   = '';
+                        if (btnLoad)   btnLoad.style.display   = 'none';
+                    });
                 });
             }, 100); // Small delay to ensure DOM is fully ready
         });
