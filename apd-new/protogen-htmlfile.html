@@ -187,9 +187,9 @@
                     </div>
                 </li>
                 <li><a href="#services">Products</a></li>
-                <li><a href="#downloads">Downloads</a></li>
                 <li><a href="#customers-awards">Customers & Awards</a></li>
                 <li><a href="#careers">Careers</a></li>
+                <li><a href="#downloads">Downloads</a></li>
                 <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
                 <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button></li>
             </ul>
@@ -341,6 +341,410 @@
                 
                 <!-- Slide Indicators -->
                 
+            </div>
+        </div>
+    </section>
+
+     <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2><span class="highlight">About Us</span></h2>
+                <p>Proteogen Biosciences (India) Pvt Ltd was founded in the year 2003 with a dedicated conviction to be a comprehensive associate for world renowned manufactures in the field of Life Sciences. Later the company was incorporated as a private limited company with a mission to expand its activities.</p>
+                <p>Over the year Proteogen is focused on to support scientists and researches in their pursuit of achieving scientific excellence with reagents and Instrumentation from some of the pioneering manufactures around the world.</p>
+                <p>Based out of Bangalore, ProteoGen is driven by highly experienced management Team backed by exemplary Sales, Engineering Service, Scientific Support, Customer Service, IT, Accounts and Logistics.</p>
+                <p>ProteoGen offers its customers a plethora of solutions for various Research areas including genomics, Proteomics, Immunology, Cell Analysis, Cell Differentiation, Stem cell biology, Drug Discovery, CART-Cell Therapy and Assay Biology.  Some of the Technology Platforms include Flow Cytometry &amp; Antibodies, PCR, RT-PCR, DDPCR, Electrophoresis, Gel Documentation, Protein Purification Systems, Multimode Readers, Washers, High Content Imaging Systems, Patch Clamp Systems, Cell Based Assays, Proteomics Consumables, Genomics reagents, Forensic Science products, Bench top equipment’s, Plasticware, Glassware etc.</p>
+            </div>
+            <div class="about-features">
+                <div class="feature-item">
+                    <h4>Vision</h4>
+                    <p>To be one of the best Life Science solution providers by delighting our customers, partners & employees and be the best managed company in the market that we serve.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Mission</h4>
+                    <p>Strive to continuously improve our professional service to customers by innovating and bringing new solutions to the market.</p>
+                    <p>Continuously improve team proteogen capabilities & knowledge.</p>
+                    <p>Provide progressive Leadership for the Research community’s needs.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Core Values</h4>
+                    <p>Integrity : We adhere to high ethical standards.</p>
+                    <p>Respect : We value diversity and treat each person in a manner that reflects our values.</p>
+                    <p>Commitment : Keep up our promises and perform our roles to the highest possible standards.</p>
+                </div>
+                <div class="feature-item office-card">
+                    <h4>Our Office</h4>
+                    <p>Take a virtual tour of our modern facilities. <i>Click on the images for more details</i></p>
+                    <div class="office-thumbnails-grid">
+                        <div class="office-thumbnail-small" data-image="images/office_img1.jpg" data-title="Main Laboratory" data-description="Our primary research and development laboratory equipped with cutting-edge instruments">
+                            <img src="images/office_img1.jpg" alt="Main Laboratory" loading="lazy">
+                            <div class="thumbnail-overlay-small">
+                                <div class="view-icon-small">🔍</div>
+                            </div>
+                        </div>
+                        <div class="office-thumbnail-small" data-image="images/office_img2.jpg" data-title="Conference Room" data-description="Modern meeting space for team collaboration and client presentations">
+                            <img src="images/office_img2.jpg" alt="Conference Room" loading="lazy">
+                            <div class="thumbnail-overlay-small">
+                                <div class="view-icon-small">🔍</div>
+                            </div>
+                        </div>
+                        <div class="office-thumbnail-small" data-image="images/office_img3.jpg" data-title="Quality Control Lab" data-description="Dedicated quality assurance and testing facility ensuring product excellence">
+                            <img src="images/office_img3.jpg" alt="Quality Control Lab" loading="lazy">
+                            <div class="thumbnail-overlay-small">
+                                <div class="view-icon-small">🔍</div>
+                            </div>
+                        </div>
+                        <div class="office-thumbnail-small" data-image="images/office_img4.jpg" data-title="Reception Area" data-description="Welcoming entrance space showcasing our commitment to professionalism">
+                            <img src="images/office_img4.jpg" alt="Reception Area" loading="lazy">
+                            <div class="thumbnail-overlay-small">
+                                <div class="view-icon-small">🔍</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Modal -->
+    <div class="office-modal" id="officeModal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 id="modalTitle" class="modal-title">Office Image</h2>
+                <button class="modal-close" id="modalClose" aria-label="Close modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            
+            <div class="modal-content">
+                <div class="image-container">
+                    <img id="modalImage" src="" alt="" class="modal-image">
+                    <div class="image-loading">
+                        <div class="loading-spinner-large"></div>
+                        <p>Loading image...</p>
+                    </div>
+                    <div class="image-error" style="display: none;">
+                        <div class="error-icon">⚠️</div>
+                        <p>Failed to load image</p>
+                        <button class="retry-btn">Retry</button>
+                    </div>
+                </div>
+                
+                <div class="carousel-navigation">
+                    <button class="carousel-btn prev-btn" id="prevBtn" aria-label="Previous image">
+                        <span aria-hidden="true">‹</span>
+                    </button>
+                    <button class="carousel-btn next-btn" id="nextBtn" aria-label="Next image">
+                        <span aria-hidden="true">›</span>
+                    </button>
+                </div>
+                
+                <div class="image-counter">
+                    <span id="currentImageIndex">1</span> / <span id="totalImages">4</span>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <div class="image-info">
+                    <h3 id="modalDescription" class="image-title">Image Title</h3>
+                    <p class="image-description">Image description</p>
+                </div>
+                
+                <div class="modal-actions">
+                    <button class="action-btn fullscreen-btn" id="fullscreenBtn" aria-label="Toggle fullscreen">
+                        <span aria-hidden="true">⛶</span>
+                    </button>
+                    <button class="action-btn download-btn" id="downloadBtn" aria-label="Download image">
+                        <span aria-hidden="true">⬇</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Our Team Section -->
+    <section class="section" id="team">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Team</h2>
+                <p>Meet the passionate professionals driving innovation in life sciences</p>
+            </div>
+
+            <!-- Team Categories Navigation -->
+            <div class="team-categories">
+                <!-- <button class="team-category-btn active" data-category="all">All Team</button> -->
+                <button class="team-category-btn active" data-category="leadership">Leadership</button>
+                <!-- <button class="team-category-btn" data-category="rd">Research & Development</button> -->
+                <!-- <button class="team-category-btn" data-category="operations">Operations</button> -->
+                <!-- <button class="team-category-btn" data-category="advisory">Advisory Board</button> -->
+            </div>
+
+            <!-- Leadership Team -->
+            <div class="team-section" id="team-leadership" data-category="leadership">
+                <h3 class="team-section-title">Leadership Team</h3>
+                <div class="team-grid">
+                    <div class="team-member-card">
+                        <!-- <div class="member-photo">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face" alt="Mr. Arun Patel" loading="lazy">
+                            <div class="member-overlay">
+                                <div class="member-contact">
+                                    <a href="mailto:arun.patel@proteogen.com" aria-label="Email Mr. Arun Patel">📧</a>
+                                    <a href="tel:+918041162171" aria-label="Call Mr. Arun Patel">📞</a>
+                                    <a href="https://linkedin.com/in/arunpatel" target="_blank" aria-label="LinkedIn Profile">💼</a>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="member-info">
+                            <h4>Ganesh Babu V.S </h4>
+                            <p class="member-title">Founder Director</p>
+                            <p class="member-bio">
+                                Ganesh Babu V.S is the Founder Director of Proteogen Biosciences (India) Pvt. Ltd., a leading life sciences and health sciences company headquartered in Bangalore, India. With over 40 years of experience across pharmaceuticals, chemicals, and life sciences, Ganesh has played a pivotal role in shaping ProteoGen’s growth and reputation as a trusted partner in biosciences solutions.<br/><br/>
+Ganesh founded Proteogen in 2003 and incorporated it as a private limited entity in 2011. Under his leadership, the company has consistently expanded its footprint in the biotechnology and analytical sciences sectors, building strong collaborations and a customer-centric business model. His leadership philosophy emphasizes integrity, innovation, and long-term value creation for both clients and partners.<br/><br/>
+Under his leadership, Proteogen Biosciences has built a robust network of global partners and principals, enabling efficient sourcing and distribution of high-quality bioscience products. He has been instrumental in developing reliable supply channels, strengthening partner relationships, and ensuring consistent delivery standards that customers can depend on.<br/><br/>
+Ganesh’s leadership is defined by a commitment to partnership-driven growth, operational excellence, and uncompromising quality. He places strong emphasis on responsiveness, transparency, and long-term collaboration, positioning the company as a dependable link between global manufacturers and the scientific community.<br/><br/>
+Before founding Proteogen, Ganesh held leadership and technical roles at reputed organizations such as Citadel Fine Pharmaceuticals (Pharma), Merck Limited (Chemicals), and BDH Chemicals & Analytical Instruments. His deep understanding of market dynamics and hands-on experience in sales, business development, and team management have been instrumental in driving ProteoGen’ s strategic direction.<br/><br/>
+His vision is to establish Proteogen Biosciences as a leading channel partner and supplier by expanding strategic alliances, enhancing distribution capabilities, and delivering consistent value through reliability, quality, and service excellence.
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="team-member-card">
+                        <!-- <div class="member-photo">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" alt="Dr. Rajesh Kumar" loading="lazy">
+                            <div class="member-overlay">
+                                <div class="member-contact">
+                                    <a href="mailto:rajesh.kumar@proteogen.com" aria-label="Email Dr. Rajesh Kumar">📧</a>
+                                    <a href="tel:+918041162169" aria-label="Call Dr. Rajesh Kumar">📞</a>
+                                    <a href="https://linkedin.com/in/rajeshkumar" target="_blank" aria-label="LinkedIn Profile">💼</a>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="member-info">
+                            <h4>Sridhar Krishna</h4>
+                            <p class="member-title">Director</p>
+                            <p class="member-bio">A seasoned business leader with nearly 28 years of comprehensive experience in Leadership, Strategic Planning, Sales & Marketing, Business Development, Channel Management, Relationship Management, Team Leadership, and Entrepreneurship.<br/><br/>
+                                 Proven track record of driving sustainable revenue growth, expanding market share, and building high-performance teams across competitive markets. <br/><br/>
+                                 Adept at translating vision into actionable strategies, executing business plans within defined timelines, and maintaining strong focus on profitability and cost optimization. <br/><br/>
+                                 Recognized for strong analytical acumen in market intelligence and sales forecasting, enabling identification of emerging opportunities and formulation of winning growth strategies. <br/><br/>
+                                 Demonstrated expertise in launching and developing new territories, strengthening channel networks, and deepening client relationships to maximize lifetime value. <br/><br/>
+                                 A strategic negotiator and results-driven leader with a consistent history of delivering substantial business growth, fostering collaborative partnerships, and steering organizations toward long-term success. </p>
+                            <div class="member-expertise">
+                                <span class="expertise-tag">Strategic Leadership & Vision Execution</span>
+                                <span class="expertise-tag">Sales & Marketing Strategy </span>
+                                <span class="expertise-tag">Business Development & Revenue Growth </span>
+                                <span class="expertise-tag">Channel & Distribution Management </span>
+                                <span class="expertise-tag">Key Account & Relationship Management </span>
+                                <span class="expertise-tag">Market Expansion & Territory Development </span>
+                                <span class="expertise-tag">Team Building & Performance Management </span>
+                                <span class="expertise-tag">Entrepreneurship & Business Scaling </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research & Development Team -->
+            <!--
+            <div class="team-section" id="team-rd" data-category="rd">
+                <h3 class="team-section-title">Research & Development</h3>
+                <div class="team-grid">
+                    <div class="team-member-card">
+                        <div class="member-photo">
+                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&h=300&fit=crop&crop=face" alt="Dr. Meera Reddy" loading="lazy">
+                            <div class="member-overlay">
+                                <div class="member-contact">
+                                    <a href="mailto:meera.reddy@proteogen.com" aria-label="Email Dr. Meera Reddy">📧</a>
+                                    <a href="tel:+918041162172" aria-label="Call Dr. Meera Reddy">📞</a>
+                                    <a href="https://linkedin.com/in/meerareddy" target="_blank" aria-label="LinkedIn Profile">💼</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Dr. Meera Reddy</h4>
+                            <p class="member-title">Head of Cell Biology Research</p>
+                            <p class="member-bio">Leading expert in stem cell research and regenerative medicine. Dr. Reddy has developed several breakthrough cell culture protocols and holds 12 patents in cell biology applications.</p>
+                            <div class="member-expertise">
+                                <span class="expertise-tag">Stem Cell Research</span>
+                                <span class="expertise-tag">Cell Culture</span>
+                                <span class="expertise-tag">Regenerative Medicine</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-member-card">
+                        <div class="member-photo">
+                            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=300&h=300&fit=crop&crop=face" alt="Dr. Vikram Singh" loading="lazy">
+                            <div class="member-overlay">
+                                <div class="member-contact">
+                                    <a href="mailto:vikram.singh@proteogen.com" aria-label="Email Dr. Vikram Singh">📧</a>
+                                    <a href="tel:+918041162173" aria-label="Call Dr. Vikram Singh">📞</a>
+                                    <a href="https://linkedin.com/in/vikramsingh" target="_blank" aria-label="LinkedIn Profile">💼</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Dr. Vikram Singh</h4>
+                            <p class="member-title">Senior Molecular Biologist</p>
+                            <p class="member-bio">Specializes in PCR technologies and genetic analysis. Dr. Singh has contributed to the development of several diagnostic kits and molecular biology reagents used worldwide.</p>
+                            <div class="member-expertise">
+                                <span class="expertise-tag">PCR Technology</span>
+                                <span class="expertise-tag">Genetic Analysis</span>
+                                <span class="expertise-tag">Diagnostics</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-member-card">
+                        <div class="member-photo">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&crop=face" alt="Dr. Anita Gupta" loading="lazy">
+                            <div class="member-overlay">
+                                <div class="member-contact">
+                                    <a href="mailto:anita.gupta@proteogen.com" aria-label="Email Dr. Anita Gupta">📧</a>
+                                    <a href="tel:+918041162174" aria-label="Call Dr. Anita Gupta">📞</a>
+                                    <a href="https://linkedin.com/in/anitagupta" target="_blank" aria-label="LinkedIn Profile">💼</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Dr. Anita Gupta</h4>
+                            <p class="member-title">Protein Biochemist</p>
+                            <p class="member-bio">Expert in protein purification and characterization with focus on therapeutic proteins. She leads the development of novel protein-based research tools and biomarkers.</p>
+                            <div class="member-expertise">
+                                <span class="expertise-tag">Protein Purification</span>
+                                <span class="expertise-tag">Biochemistry</span>
+                                <span class="expertise-tag">Biomarkers</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            Operations Team
+            <div class="team-section" id="team-operations" data-category="operations">
+                <h3 class="team-section-title">Operations</h3>
+                <div class="team-grid">
+                    <div class="team-member-card">
+                        <div class="member-photo">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=300&fit=crop&crop=face" alt="Mr. Suresh Nair" loading="lazy">
+                            <div class="member-overlay">
+                                <div class="member-contact">
+                                    <a href="mailto:suresh.nair@proteogen.com" aria-label="Email Mr. Suresh Nair">📧</a>
+                                    <a href="tel:+918041162175" aria-label="Call Mr. Suresh Nair">📞</a>
+                                    <a href="https://linkedin.com/in/sureshnair" target="_blank" aria-label="LinkedIn Profile">💼</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Mr. Suresh Nair</h4>
+                            <p class="member-title">Head of Manufacturing</p>
+                            <p class="member-bio">Oversees all manufacturing operations with 22 years of experience in biotechnology production. Expert in GMP compliance and process optimization for life science products.</p>
+                            <div class="member-expertise">
+                                <span class="expertise-tag">Manufacturing</span>
+                                <span class="expertise-tag">GMP Compliance</span>
+                                <span class="expertise-tag">Process Optimization</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-member-card">
+                        <div class="member-photo">
+                            <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=300&h=300&fit=crop&crop=face" alt="Ms. Kavya Iyer" loading="lazy">
+                            <div class="member-overlay">
+                                <div class="member-contact">
+                                    <a href="mailto:kavya.iyer@proteogen.com" aria-label="Email Ms. Kavya Iyer">📧</a>
+                                    <a href="tel:+918041162176" aria-label="Call Ms. Kavya Iyer">📞</a>
+                                    <a href="https://linkedin.com/in/kavyaiyer" target="_blank" aria-label="LinkedIn Profile">💼</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Ms. Kavya Iyer</h4>
+                            <p class="member-title">Quality Assurance Manager</p>
+                            <p class="member-bio">Ensures product quality and regulatory compliance across all operations. She has extensive experience in ISO standards implementation and quality management systems.</p>
+                            <div class="member-expertise">
+                                <span class="expertise-tag">Quality Assurance</span>
+                                <span class="expertise-tag">Regulatory Compliance</span>
+                                <span class="expertise-tag">ISO Standards</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-member-card">
+                        <div class="member-photo">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop&crop=face" alt="Mr. Rohit Mehta" loading="lazy">
+                            <div class="member-overlay">
+                                <div class="member-contact">
+                                    <a href="mailto:rohit.mehta@proteogen.com" aria-label="Email Mr. Rohit Mehta">📧</a>
+                                    <a href="tel:+918041162177" aria-label="Call Mr. Rohit Mehta">📞</a>
+                                    <a href="https://linkedin.com/in/rohitmehta" target="_blank" aria-label="LinkedIn Profile">💼</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Mr. Rohit Mehta</h4>
+                            <p class="member-title">Supply Chain Director</p>
+                            <p class="member-bio">Manages global supply chain operations and vendor relationships. Expert in logistics optimization and inventory management for biotechnology products.</p>
+                            <div class="member-expertise">
+                                <span class="expertise-tag">Supply Chain</span>
+                                <span class="expertise-tag">Logistics</span>
+                                <span class="expertise-tag">Vendor Management</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            Advisory Board
+            <div class="team-section" id="team-advisory" data-category="advisory">
+                <h3 class="team-section-title">Advisory Board</h3>
+                <div class="team-grid">
+                    <div class="team-member-card">
+                        <div class="member-photo">
+                            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&h=300&fit=crop&crop=face" alt="Prof. Dr. Ramesh Chandra" loading="lazy">
+                            <div class="member-overlay">
+                                <div class="member-contact">
+                                    <a href="mailto:ramesh.chandra@proteogen.com" aria-label="Email Prof. Dr. Ramesh Chandra">📧</a>
+                                    <a href="https://linkedin.com/in/rameshchandra" target="_blank" aria-label="LinkedIn Profile">💼</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Prof. Dr. Ramesh Chandra</h4>
+                            <p class="member-title">Scientific Advisor</p>
+                            <p class="member-bio">Former Director of IISc Bangalore and renowned biotechnology researcher. Prof. Chandra provides strategic scientific guidance and has over 40 years of research experience.</p>
+                            <div class="member-expertise">
+                                <span class="expertise-tag">Scientific Strategy</span>
+                                <span class="expertise-tag">Research Excellence</span>
+                                <span class="expertise-tag">Academic Leadership</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-member-card">
+                        <div class="member-photo">
+                            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=300&h=300&fit=crop&crop=face" alt="Dr. Sarah Johnson" loading="lazy">
+                            <div class="member-overlay">
+                                <div class="member-contact">
+                                    <a href="mailto:sarah.johnson@proteogen.com" aria-label="Email Dr. Sarah Johnson">📧</a>
+                                    <a href="https://linkedin.com/in/sarahjohnson" target="_blank" aria-label="LinkedIn Profile">💼</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Dr. Sarah Johnson</h4>
+                            <p class="member-title">International Business Advisor</p>
+                            <p class="member-bio">Former VP of Global Operations at a leading biotech company. Dr. Johnson advises on international expansion and global market strategies.</p>
+                            <div class="member-expertise">
+                                <span class="expertise-tag">Global Strategy</span>
+                                <span class="expertise-tag">International Business</span>
+                                <span class="expertise-tag">Market Expansion</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            -->
             </div>
         </div>
     </section>
@@ -1575,59 +1979,394 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about-section" id="about">
-        <div class="about-content">
-            <div class="about-text">
-                <h2>Dedicated to <span class="highlight">Scientific Excellence</span></h2>
-                <p>Proteogen Biosciences (India) Pvt Ltd was founded in the year 2003 with a dedicated conviction to be a comprehensive associate for world renowned manufactures in the field of Life Sciences. Later the company was incorporated as a private limited company with a mission to expand its activities.</p>
-                <p>Over the year Proteogen is focused on to support scientists and researches in their pursuit of achieving scientific excellence with reagents and Instrumentation from some of the pioneering manufactures around the world.</p>
-                <p>Based out of Bangalore, ProteoGen is driven by highly experienced management Team backed by exemplary Sales, Engineering Service, Scientific Support, Customer Service, IT, Accounts and Logistics.</p>
-                <p>ProteoGen offers its customers a plethora of solutions for various Research areas including genomics, Proteomics, Immunology, Cell Analysis, Cell Differentiation, Stem cell biology, Drug Discovery, CART-Cell Therapy and Assay Biology.  Some of the Technology Platforms include Flow Cytometry &amp; Antibodies, PCR, RT-PCR, DDPCR, Electrophoresis, Gel Documentation, Protein Purification Systems, Multimode Readers, Washers, High Content Imaging Systems, Patch Clamp Systems, Cell Based Assays, Proteomics Consumables, Genomics reagents, Forensic Science products, Bench top equipment’s, Plasticware, Glassware etc.</p>
+
+      <!-- Customers and Awards Section -->
+    <section class="customers-awards-section" id="customers-awards">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Our Success Stories</div>
+                <h2 class="section-title">Customers & Awards</h2>
+                <p class="section-description">Trusted by leading research institutions and recognized for excellence in life sciences solutions</p>
             </div>
-            <div class="about-features">
-                <div class="feature-item">
-                    <h4>Vision</h4>
-                    <p>To be one of the best Life Science solution providers by delighting our customers, partners & employees and be the best managed company in the market that we serve.</p>
+
+            <!-- Section Navigation -->
+            <div class="customers-awards-nav">
+                <button class="nav-tab active" data-section="customers">
+                    <span class="tab-icon">👥</span>
+                    <span class="tab-text">Our Customers</span>
+                </button>
+                <button class="nav-tab" data-section="awards">
+                    <span class="tab-icon">🏆</span>
+                    <span class="tab-text">Awards & Recognition</span>
+                </button>
+            </div>
+
+            <!-- Customers Section -->
+            <div class="customers-section active" id="customers-content">
+
+                <!-- Intro strip -->
+                <div class="customers-intro">
+                    <div class="customers-intro-stat">
+                        <span class="ci-number">27</span>
+                        <span class="ci-label">Key Customers</span>
+                    </div>
+                    <div class="customers-intro-divider"></div>
+                    <div class="customers-intro-stat">
+                        <span class="ci-number">6</span>
+                        <span class="ci-label">Sectors Served</span>
+                    </div>
+                    <div class="customers-intro-divider"></div>
+                    <div class="customers-intro-stat">
+                        <span class="ci-number">20<span style="font-size:1.1rem">+</span></span>
+                        <span class="ci-label">Years of Trust</span>
+                    </div>
                 </div>
-                <div class="feature-item">
-                    <h4>Mission</h4>
-                    <p>Strive to continuously improve our professional service to customers by innovating and bringing new solutions to the market.</p>
-                    <p>Continuously improve team proteogen capabilities & knowledge.</p>
-                    <p>Provide progressive Leadership for the Research community’s needs.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>Core Values</h4>
-                    <p>Integrity : We adhere to high ethical standards.</p>
-                    <p>Respect : We value diversity and treat each person in a manner that reflects our values.</p>
-                    <p>Commitment : Keep up our promises and perform our roles to the highest possible standards.</p>
-                </div>
-                <div class="feature-item office-card">
-                    <h4>Our Office</h4>
-                    <p>Take a virtual tour of our modern facilities. <i>Click on the images for more details</i></p>
-                    <div class="office-thumbnails-grid">
-                        <div class="office-thumbnail-small" data-image="images/office_img1.jpg" data-title="Main Laboratory" data-description="Our primary research and development laboratory equipped with cutting-edge instruments">
-                            <img src="images/office_img1.jpg" alt="Main Laboratory" loading="lazy">
-                            <div class="thumbnail-overlay-small">
-                                <div class="view-icon-small">🔍</div>
+
+                <!-- Sector Cards -->
+                <div class="sector-grid">
+
+                    <!-- Hospitals -->
+                    <div class="sector-card">
+                        <div class="sector-header">
+                            <div class="sector-icon-wrap">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/><line x1="12" y1="5" x2="12" y2="9"/><line x1="10" y1="7" x2="14" y2="7"/></svg>
+                            </div>
+                            <div class="sector-title-wrap">
+                                <h4 class="sector-title">Hospitals</h4>
+                                <span class="sector-count">6 clients</span>
                             </div>
                         </div>
-                        <div class="office-thumbnail-small" data-image="images/office_img2.jpg" data-title="Conference Room" data-description="Modern meeting space for team collaboration and client presentations">
-                            <img src="images/office_img2.jpg" alt="Conference Room" loading="lazy">
-                            <div class="thumbnail-overlay-small">
-                                <div class="view-icon-small">🔍</div>
+                        <ul class="sector-list">
+                            <li>Kasturba Hospital, Manipal</li>
+                            <li>Narayana Hrudayalaya</li>
+                            <li>St. John's Medical College (CBCI)</li>
+                            <li>Aster Clinical Lab</li>
+                            <li>Sri Shankara Cancer Foundation</li>
+                            <li>A.J. Hospital &amp; Research Centre</li>
+                        </ul>
+                    </div>
+
+                    <!-- Research Institutes -->
+                    <div class="sector-card">
+                        <div class="sector-header">
+                            <div class="sector-icon-wrap">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+                            </div>
+                            <div class="sector-title-wrap">
+                                <h4 class="sector-title">Research Institutes</h4>
+                                <span class="sector-count">5 clients</span>
                             </div>
                         </div>
-                        <div class="office-thumbnail-small" data-image="images/office_img3.jpg" data-title="Quality Control Lab" data-description="Dedicated quality assurance and testing facility ensuring product excellence">
-                            <img src="images/office_img3.jpg" alt="Quality Control Lab" loading="lazy">
-                            <div class="thumbnail-overlay-small">
-                                <div class="view-icon-small">🔍</div>
+                        <ul class="sector-list">
+                            <li>Indian Institute of Science (IISc)</li>
+                            <li>NIMHANS</li>
+                            <li>National Centre for Biological Sciences (NCBS)</li>
+                            <li>JNCASR</li>
+                            <li>CSIR-CFTRI, Mysore</li>
+                        </ul>
+                    </div>
+
+                    <!-- Universities -->
+                    <div class="sector-card">
+                        <div class="sector-header">
+                            <div class="sector-icon-wrap">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                            </div>
+                            <div class="sector-title-wrap">
+                                <h4 class="sector-title">Universities &amp; Deemed Universities</h4>
+                                <span class="sector-count">4 clients</span>
                             </div>
                         </div>
-                        <div class="office-thumbnail-small" data-image="images/office_img4.jpg" data-title="Reception Area" data-description="Welcoming entrance space showcasing our commitment to professionalism">
-                            <img src="images/office_img4.jpg" alt="Reception Area" loading="lazy">
-                            <div class="thumbnail-overlay-small">
-                                <div class="view-icon-small">🔍</div>
+                        <ul class="sector-list">
+                            <li>Bangalore University</li>
+                            <li>Mysore University</li>
+                            <li>IIT Dharwad</li>
+                            <li>Manipal Academy of Higher Education (MAHE)</li>
+                        </ul>
+                    </div>
+
+                    <!-- CRO -->
+                    <div class="sector-card">
+                        <div class="sector-header">
+                            <div class="sector-icon-wrap">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2v6l3 3-3 3v6h12v-6l-3-3 3-3V2z"/><line x1="6" y1="7" x2="18" y2="7"/><line x1="6" y1="17" x2="18" y2="17"/></svg>
+                            </div>
+                            <div class="sector-title-wrap">
+                                <h4 class="sector-title">CRO</h4>
+                                <span class="sector-count">5 clients</span>
+                            </div>
+                        </div>
+                        <ul class="sector-list">
+                            <li>Syngene International Ltd</li>
+                            <li>Aurigene Oncology Limited</li>
+                            <li>Aurigene Pharmaceutical Services Limited</li>
+                            <li>Jubilant Biosys Limited</li>
+                            <li>Eurofins</li>
+                        </ul>
+                    </div>
+
+                    <!-- Industry -->
+                    <div class="sector-card">
+                        <div class="sector-header">
+                            <div class="sector-icon-wrap">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+                            </div>
+                            <div class="sector-title-wrap">
+                                <h4 class="sector-title">Industry</h4>
+                                <span class="sector-count">3 clients</span>
+                            </div>
+                        </div>
+                        <ul class="sector-list">
+                            <li>Biocon</li>
+                            <li>Beckman Coulter</li>
+                            <li>Immuneel Therapeutics Private Limited</li>
+                        </ul>
+                    </div>
+
+                    <!-- Startups -->
+                    <div class="sector-card">
+                        <div class="sector-header">
+                            <div class="sector-icon-wrap">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                            </div>
+                            <div class="sector-title-wrap">
+                                <h4 class="sector-title">Startups</h4>
+                                <span class="sector-count">4 clients</span>
+                            </div>
+                        </div>
+                        <ul class="sector-list">
+                            <li>Bugworks Research India Private Limited</li>
+                            <li>ImmunitasBio Private Limited</li>
+                            <li>Metahelix Lifesciences Pvt Ltd</li>
+                            <li>Jivanu Therapeutics Private Limited</li>
+                        </ul>
+                    </div>
+
+                </div><!-- /.sector-grid -->
+            </div>
+
+            <!-- Awards Section -->
+            <div class="awards-section" id="awards-content">
+
+                <!-- Award Certificates -->
+                <div class="award-certificates-section">
+                    <h3 class="subsection-title">Award Certificates</h3>
+                    <div class="certificates-grid">
+                        <div class="certificate-item" role="button" tabindex="0" aria-label="View Best Partner Award certificate"
+                             data-image="Awards/AR_1.jpg" data-title="Best Partner Award" data-description="BD Biosciences — 2023">
+                            <img src="Awards/AR_1.jpg" alt="Proteogen Award Certificate 1" loading="lazy">
+                            <div class="certificate-overlay">
+                                <div class="certificate-view-icon">🔍</div>
+                            </div>
+                            <div class="certificate-caption">
+                                <h4>Best Partner Award</h4>
+                                <p>BD Biosciences &mdash; 2023</p>
+                            </div>
+                        </div>
+                        <div class="certificate-item" role="button" tabindex="0" aria-label="View Excellence in Distribution certificate"
+                             data-image="Awards/AR_2.jpg" data-title="Excellence in Distribution" data-description="Indian Life Sciences Industry Association — 2024">
+                            <img src="Awards/AR_2.jpg" alt="Proteogen Award Certificate 2" loading="lazy">
+                            <div class="certificate-overlay">
+                                <div class="certificate-view-icon">🔍</div>
+                            </div>
+                            <div class="certificate-caption">
+                                <h4>Excellence in Distribution</h4>
+                                <p>Indian Life Sciences Industry Association &mdash; 2024</p>
+                            </div>
+                        </div>
+                        <div class="certificate-item" role="button" tabindex="0" aria-label="View Innovation in Customer Service certificate"
+                             data-image="Awards/AR_3.jpg" data-title="Innovation in Customer Service" data-description="Bio-Rad Laboratories — 2022">
+                            <img src="Awards/AR_3.jpg" alt="Proteogen Award Certificate 3" loading="lazy">
+                            <div class="certificate-overlay">
+                                <div class="certificate-view-icon">🔍</div>
+                            </div>
+                            <div class="certificate-caption">
+                                <h4>Innovation in Customer Service</h4>
+                                <p>Bio-Rad Laboratories &mdash; 2022</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Awards Timeline -->
+                <div class="awards-timeline-section">
+                    <h3 class="subsection-title">Recognition Timeline</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker">
+                                <div class="timeline-year">2024</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="award-card">
+                                    <div class="award-icon">🏆</div>
+                                    <h4 class="award-title">Excellence in Life Sciences Distribution</h4>
+                                    <p class="award-issuer">Indian Life Sciences Industry Association</p>
+                                    <p class="award-description">Recognized for outstanding contribution to advancing life sciences research through innovative product distribution and technical support services.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-marker">
+                                <div class="timeline-year">2023</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="award-card">
+                                    <div class="award-icon">🥇</div>
+                                    <h4 class="award-title">Best Partner Award</h4>
+                                    <p class="award-issuer">BD Biosciences</p>
+                                    <p class="award-description">Awarded for exceptional sales performance and customer satisfaction in flow cytometry solutions across the Indian market.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-marker">
+                                <div class="timeline-year">2022</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="award-card">
+                                    <div class="award-icon">🌟</div>
+                                    <h4 class="award-title">Innovation in Customer Service</h4>
+                                    <p class="award-issuer">Bio-Rad Laboratories</p>
+                                    <p class="award-description">Recognized for implementing innovative customer support solutions and maintaining highest service standards in the region.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-marker">
+                                <div class="timeline-year">2021</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="award-card">
+                                    <div class="award-icon">🎖️</div>
+                                    <h4 class="award-title">Outstanding Distributor Achievement</h4>
+                                    <p class="award-issuer">Molecular Devices</p>
+                                    <p class="award-description">Honored for exceptional growth in microplate reader and imaging system sales, contributing to research advancement in India.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-marker">
+                                <div class="timeline-year">2020</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="award-card">
+                                    <div class="award-icon">🏅</div>
+                                    <h4 class="award-title">COVID-19 Response Excellence</h4>
+                                    <p class="award-issuer">Promega Corporation</p>
+                                    <p class="award-description">Special recognition for maintaining critical supply chains and supporting diagnostic laboratories during the pandemic response.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications and Badges -->
+                <div class="certifications-section">
+                    <h3 class="subsection-title">Certifications & Accreditations</h3>
+                    <div class="certifications-grid">
+                        <div class="certification-card">
+                            <div class="cert-badge">
+                                <div class="cert-icon">📜</div>
+                                <h4 class="cert-title">ISO 9001:2015</h4>
+                                <p class="cert-description">Quality Management System certification ensuring consistent service delivery and customer satisfaction.</p>
+                                <div class="cert-details">
+                                    <span class="cert-issuer">Bureau Veritas</span>
+                                    <span class="cert-date">Valid until 2026</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="certification-card">
+                            <div class="cert-badge">
+                                <div class="cert-icon">🏢</div>
+                                <h4 class="cert-title">MSME Certified</h4>
+                                <p class="cert-description">Micro, Small & Medium Enterprises certification supporting Indian government initiatives for business growth.</p>
+                                <div class="cert-details">
+                                    <span class="cert-issuer">Ministry of MSME</span>
+                                    <span class="cert-date">Government of India</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="certification-card">
+                            <div class="cert-badge">
+                                <div class="cert-icon">🔒</div>
+                                <h4 class="cert-title">Data Security Compliance</h4>
+                                <p class="cert-description">Adherence to international data protection standards ensuring customer information security and privacy.</p>
+                                <div class="cert-details">
+                                    <span class="cert-issuer">Security Audit</span>
+                                    <span class="cert-date">Annual Review</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="certification-card">
+                            <div class="cert-badge">
+                                <div class="cert-icon">🌱</div>
+                                <h4 class="cert-title">Environmental Compliance</h4>
+                                <p class="cert-description">Commitment to environmental sustainability and responsible business practices in all operations.</p>
+                                <div class="cert-details">
+                                    <span class="cert-issuer">Environmental Board</span>
+                                    <span class="cert-date">Karnataka State</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievement Highlights -->
+                <div class="achievements-section">
+                    <h3 class="subsection-title">Key Achievements</h3>
+                    <div class="achievements-grid">
+                        <div class="achievement-item">
+                            <div class="achievement-icon">📈</div>
+                            <div class="achievement-content">
+                                <h4 class="achievement-title">20+ Years of Excellence</h4>
+                                <p class="achievement-description">Two decades of consistent growth and innovation in the life sciences industry, serving researchers across India and beyond.</p>
+                            </div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-icon">🤝</div>
+                            <div class="achievement-content">
+                                <h4 class="achievement-title">Global Partnerships</h4>
+                                <p class="achievement-description">Exclusive partnerships with world-leading manufacturers including BD Biosciences, Bio-Rad, Promega, and Molecular Devices.</p>
+                            </div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-icon">🎓</div>
+                            <div class="achievement-content">
+                                <h4 class="achievement-title">Training Excellence</h4>
+                                <p class="achievement-description">Trained over 5,000 researchers and technicians on advanced life sciences instrumentation and methodologies.</p>
+                            </div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-icon">🔬</div>
+                            <div class="achievement-content">
+                                <h4 class="achievement-title">Research Impact</h4>
+                                <p class="achievement-description">Our instruments have contributed to over 1,000 published research papers and breakthrough discoveries in life sciences.</p>
+                            </div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-icon">🌍</div>
+                            <div class="achievement-content">
+                                <h4 class="achievement-title">Regional Leadership</h4>
+                                <p class="achievement-description">Leading distributor in South Asia for premium life sciences equipment, with expanding presence across the region.</p>
+                            </div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-icon">💡</div>
+                            <div class="achievement-content">
+                                <h4 class="achievement-title">Innovation Support</h4>
+                                <p class="achievement-description">Enabling cutting-edge research in genomics, proteomics, cell biology, and drug discovery through advanced instrumentation.</p>
                             </div>
                         </div>
                     </div>
@@ -1635,64 +2374,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Office Modal -->
-    <div class="office-modal" id="officeModal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
-        <div class="modal-backdrop"></div>
-        <div class="modal-container">
-            <div class="modal-header">
-                <h2 id="modalTitle" class="modal-title">Office Image</h2>
-                <button class="modal-close" id="modalClose" aria-label="Close modal">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            
-            <div class="modal-content">
-                <div class="image-container">
-                    <img id="modalImage" src="" alt="" class="modal-image">
-                    <div class="image-loading">
-                        <div class="loading-spinner-large"></div>
-                        <p>Loading image...</p>
-                    </div>
-                    <div class="image-error" style="display: none;">
-                        <div class="error-icon">⚠️</div>
-                        <p>Failed to load image</p>
-                        <button class="retry-btn">Retry</button>
-                    </div>
-                </div>
-                
-                <div class="carousel-navigation">
-                    <button class="carousel-btn prev-btn" id="prevBtn" aria-label="Previous image">
-                        <span aria-hidden="true">‹</span>
-                    </button>
-                    <button class="carousel-btn next-btn" id="nextBtn" aria-label="Next image">
-                        <span aria-hidden="true">›</span>
-                    </button>
-                </div>
-                
-                <div class="image-counter">
-                    <span id="currentImageIndex">1</span> / <span id="totalImages">4</span>
-                </div>
-            </div>
-            
-            <div class="modal-footer">
-                <div class="image-info">
-                    <h3 id="modalDescription" class="image-title">Image Title</h3>
-                    <p class="image-description">Image description</p>
-                </div>
-                
-                <div class="modal-actions">
-                    <button class="action-btn fullscreen-btn" id="fullscreenBtn" aria-label="Toggle fullscreen">
-                        <span aria-hidden="true">⛶</span>
-                    </button>
-                    <button class="action-btn download-btn" id="downloadBtn" aria-label="Download image">
-                        <span aria-hidden="true">⬇</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <!-- Awards Modal -->
     <div class="office-modal" id="awardsModal" aria-hidden="true" role="dialog" aria-labelledby="awardsModalTitle" aria-describedby="awardsModalDescription">
@@ -1748,579 +2429,245 @@
     </div>
 
 
-
-    <!-- Get in Touch Section -->
-    <section class="get-in-touch-section" id="contact">
-        <div class="get-in-touch-container">
-            <div class="get-in-touch-header">
-                <h2>Get in Touch</h2>
-                <p>Connect with our team through multiple channels. We're here to support your research and business needs with prompt, professional service.</p>
-            </div>
-
-            <div class="contact-cards-grid">
-                <!-- Phone Contact -->
-                <div class="contact-card phone" tabindex="0" role="button" aria-label="Phone contact information">
-                    <div class="contact-card-content">
-                        <div class="contact-icon" aria-hidden="true">📞</div>
-                        <h3 class="contact-title">Phone</h3>
-                        <div class="contact-info">
-                            <p>+91 80 - 41162169</p>
-                            <p>+91 80 - 41701555</p>
-                        </div>
-                        <a href="tel:+918041121778" class="contact-action" aria-label="Call main phone number">
-                            <span>Call Now</span>
-                            <span aria-hidden="true">📱</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Enquiry & Quotes -->
-                <div class="contact-card email" tabindex="0" role="button" aria-label="Sales enquiry contact information">
-                    <div class="contact-card-content">
-                        <div class="contact-icon" aria-hidden="true">💼</div>
-                        <h3 class="contact-title">Enquiry, Quotes</h3>
-                        <div class="contact-info">
-                            <p>sales@proteogen.com</p>
-                            <p>Get product quotes and pricing information</p>
-                        </div>
-                        <a href="mailto:sales@proteogen.com" class="contact-action" aria-label="Send sales enquiry email">
-                            <span>Send Email</span>
-                            <span aria-hidden="true">✉️</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Address -->
-                <div class="contact-card address" tabindex="0" role="button" aria-label="Office address information">
-                    <div class="contact-card-content">
-                        <div class="contact-icon" aria-hidden="true">📍</div>
-                        <h3 class="contact-title">Address</h3>
-                        <div class="contact-info">
-                            <p>#3C-1003, 3rd cross, 1st block</p>
-                            <p>HRBR Layout, Banaswadi</p>
-                            <p>Bengaluru - 560043</p>
-                        </div>
-                        <a href="https://maps.google.com/?q=HRBR+Layout+Banaswadi+Bengaluru+560043" target="_blank" class="contact-action" aria-label="View location on Google Maps">
-                            <span>View Map</span>
-                            <span aria-hidden="true">🗺️</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Logistics -->
-                <div class="contact-card logistics" tabindex="0" role="button" aria-label="Logistics contact information">
-                    <div class="contact-card-content">
-                        <div class="contact-icon" aria-hidden="true">🚚</div>
-                        <h3 class="contact-title">Logistics</h3>
-                        <div class="contact-info">
-                            <p>logistics@proteogen.com</p>
-                            <p>Shipping & Delivery</p>
-                        </div>
-                        <a href="mailto:logistics@proteogen.com" class="contact-action" aria-label="Contact logistics team">
-                            <span>Contact Logistics</span>
-                            <span aria-hidden="true">📦</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Technical Support -->
-                <div class="contact-card technical" tabindex="0" role="button" aria-label="Technical support contact information">
-                    <div class="contact-card-content">
-                        <div class="contact-icon" aria-hidden="true">🔧</div>
-                        <h3 class="contact-title">Technical Queries</h3>
-                        <div class="contact-info">
-                            <p>technical@proteogen.com</p>
-                            <p>Product support and troubleshooting</p>
-                        </div>
-                        <a href="mailto:technical@proteogen.com" class="contact-action" aria-label="Contact technical support">
-                            <span>Get Support</span>
-                            <span aria-hidden="true">🛠️</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Escalation -->
-                <div class="contact-card escalation" tabindex="0" role="button" aria-label="Escalation contact information">
-                    <div class="contact-card-content">
-                        <div class="contact-icon" aria-hidden="true">⚡</div>
-                        <h3 class="contact-title">Escalation</h3>
-                        <div class="contact-info">
-                            <p>operations@proteogen.com</p>
-                            <p>ganesh@proteogen.com</p>
-                            <p>sridhar@proteogen.com</p>
-                        </div>
-                        <a href="mailto:operations@proteogen.com" class="contact-action" aria-label="Contact escalation team">
-                            <span>Escalate Issue</span>
-                            <span aria-hidden="true">🚨</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Careers -->
-                <div class="contact-card careers" tabindex="0" role="button" aria-label="Careers contact information">
-                    <div class="contact-card-content">
-                        <div class="contact-icon" aria-hidden="true">👥</div>
-                        <h3 class="contact-title">Careers</h3>
-                        <div class="contact-info">
-                            <p>hr@proteogen.com</p>
-                            <p>Join our team and grow your career</p>
-                        </div>
-                        <a href="mailto:hr@proteogen.com" class="contact-action" aria-label="Contact HR for career opportunities">
-                            <span>Apply Now</span>
-                            <span aria-hidden="true">💼</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-                <!-- Contact Form Section -->
-    <section class="contact-form-section" id="contact-form">
-        <div class="contact-form-container">
-            <div class="contact-form-header">
-                <h2 class="section-title">Contact Us</h2>
-                <p class="section-description">Ready to advance your research? Send us a message and our team will get back to you within 24 hours.</p>
-            </div>
-
-            <div class="contact-form-wrapper">
-                <div class="contact-form-card">
-                    <form id="contact-form" method="POST" class="modern-contact-form">
-                        <!-- Success Message (Hidden by default) -->
-                        <div id="successMessage" class="success-message" style="display:none;">
-                            <div class="success-icon">✓</div>
-                            <h3>Message Sent Successfully!</h3>
-                            <p>Thank you for contacting us. We'll get back to you within 24 hours.</p>
-                        </div>
-
-                        <!-- Form Fields -->
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="name" class="form-label">Full Name *</label>
-                                <div class="input-wrapper">
-                                    <input name="name" id="name" type="text" placeholder="Enter your full name" required class="form-input">
-                                    <div class="input-icon">👤</div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="mail" class="form-label">Email Address *</label>
-                                <div class="input-wrapper">
-                                    <input name="email" id="mail" type="email" placeholder="Enter your email address" required class="form-input">
-                                    <div class="input-icon">📧</div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="organization" class="form-label">Organization *</label>
-                                <div class="input-wrapper">
-                                    <input name="organization_name" id="organization" type="text" placeholder="Enter your organization name" required class="form-input">
-                                    <div class="input-icon">🏢</div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="phone" class="form-label">Phone Number *</label>
-                                <div class="input-wrapper">
-                                    <input name="phone" id="phone" type="text" placeholder="Enter your phone number" required pattern="^[6-9]\d{9}$"
-                                        title="Enter a valid 10-digit mobile number starting with 6-9" class="form-input">
-                                    <div class="input-icon">📞</div>
-                                </div>
-                            </div>
-
-                            <div class="form-group form-group-full">
-                                <label for="address" class="form-label">Communication Address *</label>
-                                <div class="input-wrapper">
-                                    <input name="address" id="address" type="text" placeholder="Enter your complete address" required class="form-input">
-                                    <div class="input-icon">📍</div>
-                                </div>
-                            </div>
-
-                            <div class="form-group form-group-full">
-                                <label for="comment" class="form-label">Message</label>
-                                <div class="textarea-wrapper">
-                                    <textarea name="message" id="comment" placeholder="Tell us about your requirements, questions, or how we can help you..." rows="5" class="form-textarea"></textarea>
-                                    <div class="textarea-icon">💬</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-actions">
-                            <button type="submit" name="submit" class="btn btn-primary btn-submit" id="s">
-                                <span class="btn-text">Send Message</span>
-                                <span class="btn-icon">📤</span>
-                                <div class="btn-loading">
-                                    <div class="loading-spinner"></div>
-                                </div>
-                            </button>
-                            <div id="msg" class="message"></div>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </section>
-            <!-- Location Map Section -->
-            <div class="location-map-section">
-                <div class="map-header">
-                    <h3>Visit Our Office</h3>
-                    <p>Find us at our Bangalore location. We're easily accessible and look forward to welcoming you.</p>
-                </div>
+    <!-- Career Opportunities Section -->
+    <section class="careers-section" id="careers" role="main" aria-labelledby="careers-heading">
+        <div class="container">
+            <!-- Company Culture Showcase -->
+            <div class="culture-showcase" role="region" aria-labelledby="culture-heading">
+                <h2 id="culture-heading" class="section-title">Why Choose ProteGen?</h2>
                 
-                <div class="map-container">
-                    <div class="map-info">
-                        <div class="location-details">
-                            <h4>Proteogen Biosciences India Private Limited</h4>
-                            <div class="address-details">
-                                <div class="address-item">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                        <circle cx="12" cy="10" r="3"/>
+                <div class="culture-content">
+                    <div class="culture-description">
+                        <div class="culture-text">
+                            <p class="lead-text">ProteGen offers a dynamic and inclusive workplace where individuals can thrive professionally and personally. We provide a wide range of career opportunities across various functions including Sales, Marketing, Business Development, Accounts, Logistics, Operations and Customer support primarily in the Life Science Business Segment.</p>
+                            
+                            <p>We are committed to fostering growth through continuous learning, mentorship and career development opportunities. Employees are encouraged to take initiative, collaborate across teams, and contribute to innovative work that make meaningful impact.</p>
+                            
+                            <p>Join us to be part of a forward-thinking company that values diversity, promotes work-life balance, and invests in the success of its people.</p>
+                        </div>
+                    </div>
+
+                    <div class="culture-values">
+                        <div class="values-grid">
+                            <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="value-icon">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M9 12l2 2 4-4"/>
+                                        <circle cx="12" cy="12" r="9"/>
                                     </svg>
-                                    <div>
-                                        <strong>Registered Office:</strong><br>
-                                        <strong> Biosciences (India) Private Limited</strong>
-                                        #3C-1003, 3rd cross, 1st block<br>
-                                        HRBR Layout, Banaswadi<br>
-                                        Bengaluru - 560043
-                                    </div>
                                 </div>
-                                <div class="address-item">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                        <circle cx="12" cy="10" r="3"/>
+                                <h3>Innovation Excellence</h3>
+                                <p>Drive breakthrough solutions in life sciences with cutting-edge technology and research</p>
+                            </div>
+                            
+                            <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="value-icon">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="9" cy="7" r="4"/>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                                     </svg>
-                                    <div>
-                                        <strong> Corporate Office:</strong><br>
-                                        <strong> Biosciences (India) Private Limited</strong>
-                                        10M-231, 100ft Road<br>
-                                        HRBR LAYOUT IST BLOCK<br>
-                                        Bengaluru - 560043
-                                    </div>
                                 </div>
-                                <div class="address-item">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <h3>Collaborative Culture</h3>
+                                <p>Work in diverse, inclusive teams that value every perspective and contribution</p>
+                            </div>
+                            
+                            <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+                                <div class="value-icon">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                                    </svg>
+                                </div>
+                                <h3>Growth Mindset</h3>
+                                <p>Continuous learning opportunities with mentorship and career development programs</p>
+                            </div>
+                            
+                            <div class="value-card" data-aos="fade-up" data-aos-delay="400">
+                                <div class="value-icon">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <circle cx="12" cy="12" r="10"/>
-                                        <polyline points="12,6 12,12 16,14"/>
+                                        <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                                        <line x1="9" y1="9" x2="9.01" y2="9"/>
+                                        <line x1="15" y1="9" x2="15.01" y2="9"/>
                                     </svg>
-                                    <div>
-                                        <strong>Timings:</strong><br>
-                                        Monday - Friday: 9:00 AM - 6:00 PM<br>
-                                        Saturday & Sunday: Closed
-                                    </div>
+                                </div>
+                                <h3>Work-Life Balance</h3>
+                                <p>Flexible arrangements and supportive environment for personal and professional well-being</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Opportunities Section -->
+            <div class="jobs-section" role="region" aria-labelledby="jobs-heading">
+                <div class="jobs-header">
+                    <h2 id="jobs-heading" class="section-title">Current Opportunities</h2>
+                    <p class="section-subtitle">Discover your next career move with us</p>
+                </div>
+
+                <!-- Job Listings -->
+                <div class="jobs-grid" id="jobsGrid" role="list" aria-label="Available job positions">
+                    <!-- Service Engineer Position -->
+                    <article class="job-card modern-card" data-department="technical" data-location="bangalore" data-experience="mid" role="listitem">
+                        <div class="job-card-header">
+                            <div class="job-title-section">
+                                <h3 class="job-title">Service Engineer</h3>
+                                <div class="job-badges">
+                                    <span class="badge badge-department">Technical</span>
+                                    <span class="badge badge-type">Full-time</span>
+                                    <span class="badge badge-new">New</span>
                                 </div>
                             </div>
-                            <div class="map-actions">
-                                <a href="https://maps.app.goo.gl/dAWBv7C6DxKojNd98"
-                                   target="_blank"
-                                   class="btn btn-primary map-directions-btn"
-                                   aria-label="Get directions to Proteogen Biosciences">
+                            <div class="job-meta">
+                                <div class="job-location">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                                         <circle cx="12" cy="10" r="3"/>
                                     </svg>
-                                    Get Directions
+                                    Bangalore, India
+                                </div>
+                                <div class="job-experience">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <polyline points="12,6 12,12 16,14"/>
+                                    </svg>
+                                    3-5 years
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="job-card-body">
+                            <p class="job-description">
+                                We are looking for a skilled Service Engineer to join our technical support team. You'll be responsible for maintaining and troubleshooting life science equipment, providing technical support to clients, and ensuring optimal performance of our products.
+                            </p>
+                            
+                            <div class="job-highlights">
+                                <h4>Key Responsibilities:</h4>
+                                <ul>
+                                    <li>Equipment installation and maintenance</li>
+                                    <li>Technical troubleshooting and support</li>
+                                    <li>Client training and documentation</li>
+                                    <li>Field service and remote support</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="job-card-footer">
+                            <div class="job-actions">
+                                <a href="#" class="btn btn-primary job-apply-btn" onclick="window.open('#', '_blank')" aria-label="Download Service Engineer job description">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="7,10 12,15 17,10"/>
+                                        <line x1="12" y1="15" x2="12" y2="3"/>
+                                    </svg>
+                                    Download JD
                                 </a>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="map-embed">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4560.461652192824!2d77.6548038!3d13.018167799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d5eb4831879%3A0x48b140e34b5d6b67!2sProteogen%20Biosciences%20India%20Private%20Limited!5e1!3m2!1sen!2sin!4v1781083094920!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        <br/>
-                       <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9120.966780325694!2d77.6511273!3d13.0169865!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1700651240ff%3A0xfc706c1d656a86d9!2sProteogen%20Bioscience%20India%20PVT%20LTD%20corporate%20office!5e1!3m2!1sen!2sin!4v1781082955068!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </section>
+                    </article>
 
-    <!-- Our Team Section -->
-    <section class="section" id="team">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Team</h2>
-                <p>Meet the passionate professionals driving innovation in life sciences</p>
-            </div>
-
-            <!-- Team Categories Navigation -->
-            <div class="team-categories">
-                <!-- <button class="team-category-btn active" data-category="all">All Team</button> -->
-                <button class="team-category-btn active" data-category="leadership">Leadership</button>
-                <!-- <button class="team-category-btn" data-category="rd">Research & Development</button> -->
-                <!-- <button class="team-category-btn" data-category="operations">Operations</button> -->
-                <!-- <button class="team-category-btn" data-category="advisory">Advisory Board</button> -->
-            </div>
-
-            <!-- Leadership Team -->
-            <div class="team-section" id="team-leadership" data-category="leadership">
-                <h3 class="team-section-title">Leadership Team</h3>
-                <div class="team-grid">
-                    <div class="team-member-card">
-                        <!-- <div class="member-photo">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face" alt="Mr. Arun Patel" loading="lazy">
-                            <div class="member-overlay">
-                                <div class="member-contact">
-                                    <a href="mailto:arun.patel@proteogen.com" aria-label="Email Mr. Arun Patel">📧</a>
-                                    <a href="tel:+918041162171" aria-label="Call Mr. Arun Patel">📞</a>
-                                    <a href="https://linkedin.com/in/arunpatel" target="_blank" aria-label="LinkedIn Profile">💼</a>
+                    <!-- Area Manager Position -->
+                    <article class="job-card modern-card" data-department="sales" data-location="mumbai" data-experience="senior" role="listitem">
+                        <div class="job-card-header">
+                            <div class="job-title-section">
+                                <h3 class="job-title">Area Manager - Sales</h3>
+                                <div class="job-badges">
+                                    <span class="badge badge-department">Sales</span>
+                                    <span class="badge badge-type">Full-time</span>
+                                    <span class="badge badge-urgent">Urgent</span>
                                 </div>
                             </div>
-                        </div> -->
-                        <div class="member-info">
-                            <h4>Ganesh Babu V.S </h4>
-                            <p class="member-title">Founder Director</p>
-                            <p class="member-bio">
-                                Ganesh Babu V.S is the Founder Director of Proteogen Biosciences (India) Pvt. Ltd., a leading life sciences and health sciences company headquartered in Bangalore, India. With over 40 years of experience across pharmaceuticals, chemicals, and life sciences, Ganesh has played a pivotal role in shaping ProteoGen’s growth and reputation as a trusted partner in biosciences solutions.<br/><br/>
-Ganesh founded Proteogen in 2003 and incorporated it as a private limited entity in 2011. Under his leadership, the company has consistently expanded its footprint in the biotechnology and analytical sciences sectors, building strong collaborations and a customer-centric business model. His leadership philosophy emphasizes integrity, innovation, and long-term value creation for both clients and partners.<br/><br/>
-Under his leadership, Proteogen Biosciences has built a robust network of global partners and principals, enabling efficient sourcing and distribution of high-quality bioscience products. He has been instrumental in developing reliable supply channels, strengthening partner relationships, and ensuring consistent delivery standards that customers can depend on.<br/><br/>
-Ganesh’s leadership is defined by a commitment to partnership-driven growth, operational excellence, and uncompromising quality. He places strong emphasis on responsiveness, transparency, and long-term collaboration, positioning the company as a dependable link between global manufacturers and the scientific community.<br/><br/>
-Before founding Proteogen, Ganesh held leadership and technical roles at reputed organizations such as Citadel Fine Pharmaceuticals (Pharma), Merck Limited (Chemicals), and BDH Chemicals & Analytical Instruments. His deep understanding of market dynamics and hands-on experience in sales, business development, and team management have been instrumental in driving ProteoGen’ s strategic direction.<br/><br/>
-His vision is to establish Proteogen Biosciences as a leading channel partner and supplier by expanding strategic alliances, enhancing distribution capabilities, and delivering consistent value through reliability, quality, and service excellence.
-
+                            <div class="job-meta">
+                                <div class="job-location">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                    Multiple Locations
+                                </div>
+                                <div class="job-experience">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <polyline points="12,6 12,12 16,14"/>
+                                    </svg>
+                                    5+ years
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="job-card-body">
+                            <p class="job-description">
+                                Seeking an experienced Area Manager to drive sales growth in assigned territories. You'll lead sales initiatives, manage client relationships, and expand our market presence in the life sciences sector.
                             </p>
-                        </div>
-                    </div>
-                    <div class="team-member-card">
-                        <!-- <div class="member-photo">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" alt="Dr. Rajesh Kumar" loading="lazy">
-                            <div class="member-overlay">
-                                <div class="member-contact">
-                                    <a href="mailto:rajesh.kumar@proteogen.com" aria-label="Email Dr. Rajesh Kumar">📧</a>
-                                    <a href="tel:+918041162169" aria-label="Call Dr. Rajesh Kumar">📞</a>
-                                    <a href="https://linkedin.com/in/rajeshkumar" target="_blank" aria-label="LinkedIn Profile">💼</a>
-                                </div>
-                            </div>
-                        </div> -->
-                        <div class="member-info">
-                            <h4>Sridhar Krishna</h4>
-                            <p class="member-title">Director</p>
-                            <p class="member-bio">A seasoned business leader with nearly 28 years of comprehensive experience in Leadership, Strategic Planning, Sales & Marketing, Business Development, Channel Management, Relationship Management, Team Leadership, and Entrepreneurship.<br/><br/>
-                                 Proven track record of driving sustainable revenue growth, expanding market share, and building high-performance teams across competitive markets. <br/><br/>
-                                 Adept at translating vision into actionable strategies, executing business plans within defined timelines, and maintaining strong focus on profitability and cost optimization. <br/><br/>
-                                 Recognized for strong analytical acumen in market intelligence and sales forecasting, enabling identification of emerging opportunities and formulation of winning growth strategies. <br/><br/>
-                                 Demonstrated expertise in launching and developing new territories, strengthening channel networks, and deepening client relationships to maximize lifetime value. <br/><br/>
-                                 A strategic negotiator and results-driven leader with a consistent history of delivering substantial business growth, fostering collaborative partnerships, and steering organizations toward long-term success. </p>
-                            <div class="member-expertise">
-                                <span class="expertise-tag">Strategic Leadership & Vision Execution</span>
-                                <span class="expertise-tag">Sales & Marketing Strategy </span>
-                                <span class="expertise-tag">Business Development & Revenue Growth </span>
-                                <span class="expertise-tag">Channel & Distribution Management </span>
-                                <span class="expertise-tag">Key Account & Relationship Management </span>
-                                <span class="expertise-tag">Market Expansion & Territory Development </span>
-                                <span class="expertise-tag">Team Building & Performance Management </span>
-                                <span class="expertise-tag">Entrepreneurship & Business Scaling </span>
+                            
+                            <div class="job-highlights">
+                                <h4>Key Responsibilities:</h4>
+                                <ul>
+                                    <li>Territory management and sales strategy</li>
+                                    <li>Client relationship development</li>
+                                    <li>Market analysis and opportunity identification</li>
+                                    <li>Team leadership and performance management</li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
-                </div>
+                        
+                        <div class="job-card-footer">
+                            <div class="job-actions">
+                                <a href="#" class="btn btn-primary job-apply-btn" onclick="window.open('#', '_blank')" aria-label="Download Area Manager job description">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="7,10 12,15 17,10"/>
+                                        <line x1="12" y1="15" x2="12" y2="3"/>
+                                    </svg>
+                                    Download JD
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
             </div>
 
-            <!-- Research & Development Team -->
-            <!--
-            <div class="team-section" id="team-rd" data-category="rd">
-                <h3 class="team-section-title">Research & Development</h3>
-                <div class="team-grid">
-                    <div class="team-member-card">
-                        <div class="member-photo">
-                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&h=300&fit=crop&crop=face" alt="Dr. Meera Reddy" loading="lazy">
-                            <div class="member-overlay">
-                                <div class="member-contact">
-                                    <a href="mailto:meera.reddy@proteogen.com" aria-label="Email Dr. Meera Reddy">📧</a>
-                                    <a href="tel:+918041162172" aria-label="Call Dr. Meera Reddy">📞</a>
-                                    <a href="https://linkedin.com/in/meerareddy" target="_blank" aria-label="LinkedIn Profile">💼</a>
+            <!-- Application Process -->
+            <div class="application-section" role="region" aria-labelledby="application-heading">
+                <div class="application-container">
+                    <div class="application-content">
+                        <h2 id="application-heading" class="section-title">Ready to Join Us?</h2>
+                        <p class="section-subtitle">Take the first step towards an exciting career in life sciences</p>
+                        
+                        <div class="application-methods">
+                            <div class="application-card primary-method">
+                                <div class="application-icon">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                        <polyline points="22,6 12,13 2,6"/>
+                                    </svg>
                                 </div>
+                                <h3>Email Application</h3>
+                                <p>Send your resume directly to our HR team</p>
+                                <div class="application-details">
+                                    <p><strong>Email:</strong> <a href="mailto:hr@proteogen.com" class="email-link">hr@proteogen.com</a></p>
+                                    <p><strong>Format:</strong> Word/PDF/Doc only</p>
+                                    <p><strong>Subject:</strong> Application for [Position Name]</p>
+                                </div>
+                                <a href="mailto:hr@proteogen.com?subject=Job Application - ProteGen Careers" class="btn btn-primary btn-large">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                        <polyline points="22,6 12,13 2,6"/>
+                                    </svg>
+                                    Send Application
+                                </a>
                             </div>
                         </div>
-                        <div class="member-info">
-                            <h4>Dr. Meera Reddy</h4>
-                            <p class="member-title">Head of Cell Biology Research</p>
-                            <p class="member-bio">Leading expert in stem cell research and regenerative medicine. Dr. Reddy has developed several breakthrough cell culture protocols and holds 12 patents in cell biology applications.</p>
-                            <div class="member-expertise">
-                                <span class="expertise-tag">Stem Cell Research</span>
-                                <span class="expertise-tag">Cell Culture</span>
-                                <span class="expertise-tag">Regenerative Medicine</span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="team-member-card">
-                        <div class="member-photo">
-                            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=300&h=300&fit=crop&crop=face" alt="Dr. Vikram Singh" loading="lazy">
-                            <div class="member-overlay">
-                                <div class="member-contact">
-                                    <a href="mailto:vikram.singh@proteogen.com" aria-label="Email Dr. Vikram Singh">📧</a>
-                                    <a href="tel:+918041162173" aria-label="Call Dr. Vikram Singh">📞</a>
-                                    <a href="https://linkedin.com/in/vikramsingh" target="_blank" aria-label="LinkedIn Profile">💼</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>Dr. Vikram Singh</h4>
-                            <p class="member-title">Senior Molecular Biologist</p>
-                            <p class="member-bio">Specializes in PCR technologies and genetic analysis. Dr. Singh has contributed to the development of several diagnostic kits and molecular biology reagents used worldwide.</p>
-                            <div class="member-expertise">
-                                <span class="expertise-tag">PCR Technology</span>
-                                <span class="expertise-tag">Genetic Analysis</span>
-                                <span class="expertise-tag">Diagnostics</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="team-member-card">
-                        <div class="member-photo">
-                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&crop=face" alt="Dr. Anita Gupta" loading="lazy">
-                            <div class="member-overlay">
-                                <div class="member-contact">
-                                    <a href="mailto:anita.gupta@proteogen.com" aria-label="Email Dr. Anita Gupta">📧</a>
-                                    <a href="tel:+918041162174" aria-label="Call Dr. Anita Gupta">📞</a>
-                                    <a href="https://linkedin.com/in/anitagupta" target="_blank" aria-label="LinkedIn Profile">💼</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>Dr. Anita Gupta</h4>
-                            <p class="member-title">Protein Biochemist</p>
-                            <p class="member-bio">Expert in protein purification and characterization with focus on therapeutic proteins. She leads the development of novel protein-based research tools and biomarkers.</p>
-                            <div class="member-expertise">
-                                <span class="expertise-tag">Protein Purification</span>
-                                <span class="expertise-tag">Biochemistry</span>
-                                <span class="expertise-tag">Biomarkers</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
-            </div>
-
-            Operations Team
-            <div class="team-section" id="team-operations" data-category="operations">
-                <h3 class="team-section-title">Operations</h3>
-                <div class="team-grid">
-                    <div class="team-member-card">
-                        <div class="member-photo">
-                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=300&fit=crop&crop=face" alt="Mr. Suresh Nair" loading="lazy">
-                            <div class="member-overlay">
-                                <div class="member-contact">
-                                    <a href="mailto:suresh.nair@proteogen.com" aria-label="Email Mr. Suresh Nair">📧</a>
-                                    <a href="tel:+918041162175" aria-label="Call Mr. Suresh Nair">📞</a>
-                                    <a href="https://linkedin.com/in/sureshnair" target="_blank" aria-label="LinkedIn Profile">💼</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>Mr. Suresh Nair</h4>
-                            <p class="member-title">Head of Manufacturing</p>
-                            <p class="member-bio">Oversees all manufacturing operations with 22 years of experience in biotechnology production. Expert in GMP compliance and process optimization for life science products.</p>
-                            <div class="member-expertise">
-                                <span class="expertise-tag">Manufacturing</span>
-                                <span class="expertise-tag">GMP Compliance</span>
-                                <span class="expertise-tag">Process Optimization</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="team-member-card">
-                        <div class="member-photo">
-                            <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=300&h=300&fit=crop&crop=face" alt="Ms. Kavya Iyer" loading="lazy">
-                            <div class="member-overlay">
-                                <div class="member-contact">
-                                    <a href="mailto:kavya.iyer@proteogen.com" aria-label="Email Ms. Kavya Iyer">📧</a>
-                                    <a href="tel:+918041162176" aria-label="Call Ms. Kavya Iyer">📞</a>
-                                    <a href="https://linkedin.com/in/kavyaiyer" target="_blank" aria-label="LinkedIn Profile">💼</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>Ms. Kavya Iyer</h4>
-                            <p class="member-title">Quality Assurance Manager</p>
-                            <p class="member-bio">Ensures product quality and regulatory compliance across all operations. She has extensive experience in ISO standards implementation and quality management systems.</p>
-                            <div class="member-expertise">
-                                <span class="expertise-tag">Quality Assurance</span>
-                                <span class="expertise-tag">Regulatory Compliance</span>
-                                <span class="expertise-tag">ISO Standards</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="team-member-card">
-                        <div class="member-photo">
-                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop&crop=face" alt="Mr. Rohit Mehta" loading="lazy">
-                            <div class="member-overlay">
-                                <div class="member-contact">
-                                    <a href="mailto:rohit.mehta@proteogen.com" aria-label="Email Mr. Rohit Mehta">📧</a>
-                                    <a href="tel:+918041162177" aria-label="Call Mr. Rohit Mehta">📞</a>
-                                    <a href="https://linkedin.com/in/rohitmehta" target="_blank" aria-label="LinkedIn Profile">💼</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>Mr. Rohit Mehta</h4>
-                            <p class="member-title">Supply Chain Director</p>
-                            <p class="member-bio">Manages global supply chain operations and vendor relationships. Expert in logistics optimization and inventory management for biotechnology products.</p>
-                            <div class="member-expertise">
-                                <span class="expertise-tag">Supply Chain</span>
-                                <span class="expertise-tag">Logistics</span>
-                                <span class="expertise-tag">Vendor Management</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            Advisory Board
-            <div class="team-section" id="team-advisory" data-category="advisory">
-                <h3 class="team-section-title">Advisory Board</h3>
-                <div class="team-grid">
-                    <div class="team-member-card">
-                        <div class="member-photo">
-                            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&h=300&fit=crop&crop=face" alt="Prof. Dr. Ramesh Chandra" loading="lazy">
-                            <div class="member-overlay">
-                                <div class="member-contact">
-                                    <a href="mailto:ramesh.chandra@proteogen.com" aria-label="Email Prof. Dr. Ramesh Chandra">📧</a>
-                                    <a href="https://linkedin.com/in/rameshchandra" target="_blank" aria-label="LinkedIn Profile">💼</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>Prof. Dr. Ramesh Chandra</h4>
-                            <p class="member-title">Scientific Advisor</p>
-                            <p class="member-bio">Former Director of IISc Bangalore and renowned biotechnology researcher. Prof. Chandra provides strategic scientific guidance and has over 40 years of research experience.</p>
-                            <div class="member-expertise">
-                                <span class="expertise-tag">Scientific Strategy</span>
-                                <span class="expertise-tag">Research Excellence</span>
-                                <span class="expertise-tag">Academic Leadership</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="team-member-card">
-                        <div class="member-photo">
-                            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=300&h=300&fit=crop&crop=face" alt="Dr. Sarah Johnson" loading="lazy">
-                            <div class="member-overlay">
-                                <div class="member-contact">
-                                    <a href="mailto:sarah.johnson@proteogen.com" aria-label="Email Dr. Sarah Johnson">📧</a>
-                                    <a href="https://linkedin.com/in/sarahjohnson" target="_blank" aria-label="LinkedIn Profile">💼</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>Dr. Sarah Johnson</h4>
-                            <p class="member-title">International Business Advisor</p>
-                            <p class="member-bio">Former VP of Global Operations at a leading biotech company. Dr. Johnson advises on international expansion and global market strategies.</p>
-                            <div class="member-expertise">
-                                <span class="expertise-tag">Global Strategy</span>
-                                <span class="expertise-tag">International Business</span>
-                                <span class="expertise-tag">Market Expansion</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            -->
             </div>
         </div>
     </section>
 
-    <!-- Downloads Section -->
+        <!-- Downloads Section -->
     <section class="section" id="downloads">
         <div class="container">
             <div class="section-header">
@@ -2994,638 +3341,293 @@ His vision is to establish Proteogen Biosciences as a leading channel partner an
         </div>
     </section>
 
-    <!-- Customers and Awards Section -->
-    <section class="customers-awards-section" id="customers-awards">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">Our Success Stories</div>
-                <h2 class="section-title">Customers & Awards</h2>
-                <p class="section-description">Trusted by leading research institutions and recognized for excellence in life sciences solutions</p>
+
+    <!-- Get in Touch Section -->
+    <section class="get-in-touch-section" id="contact">
+        <div class="get-in-touch-container">
+            <div class="get-in-touch-header">
+                <h2>Get in Touch</h2>
+                <p>Connect with our team through multiple channels. We're here to support your research and business needs with prompt, professional service.</p>
             </div>
 
-            <!-- Section Navigation -->
-            <div class="customers-awards-nav">
-                <button class="nav-tab active" data-section="customers">
-                    <span class="tab-icon">👥</span>
-                    <span class="tab-text">Our Customers</span>
-                </button>
-                <button class="nav-tab" data-section="awards">
-                    <span class="tab-icon">🏆</span>
-                    <span class="tab-text">Awards & Recognition</span>
-                </button>
+            <div class="contact-cards-grid">
+                <!-- Phone Contact -->
+                <div class="contact-card phone" tabindex="0" role="button" aria-label="Phone contact information">
+                    <div class="contact-card-content">
+                        <div class="contact-icon" aria-hidden="true">📞</div>
+                        <h3 class="contact-title">Phone</h3>
+                        <div class="contact-info">
+                            <p>+91 80 - 41162169</p>
+                            <p>+91 80 - 41701555</p>
+                        </div>
+                        <a href="tel:+918041121778" class="contact-action" aria-label="Call main phone number">
+                            <span>Call Now</span>
+                            <span aria-hidden="true">📱</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Enquiry & Quotes -->
+                <div class="contact-card email" tabindex="0" role="button" aria-label="Sales enquiry contact information">
+                    <div class="contact-card-content">
+                        <div class="contact-icon" aria-hidden="true">💼</div>
+                        <h3 class="contact-title">Enquiry, Quotes</h3>
+                        <div class="contact-info">
+                            <p>sales@proteogen.com</p>
+                            <p>Get product quotes and pricing information</p>
+                        </div>
+                        <a href="mailto:sales@proteogen.com" class="contact-action" aria-label="Send sales enquiry email">
+                            <span>Send Email</span>
+                            <span aria-hidden="true">✉️</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Address -->
+                <div class="contact-card address" tabindex="0" role="button" aria-label="Office address information">
+                    <div class="contact-card-content">
+                        <div class="contact-icon" aria-hidden="true">📍</div>
+                        <h3 class="contact-title">Address</h3>
+                        <div class="contact-info">
+                            <p>#3C-1003, 3rd cross, 1st block</p>
+                            <p>HRBR Layout, Banaswadi</p>
+                            <p>Bengaluru - 560043</p>
+                        </div>
+                        <a href="https://maps.google.com/?q=HRBR+Layout+Banaswadi+Bengaluru+560043" target="_blank" class="contact-action" aria-label="View location on Google Maps">
+                            <span>View Map</span>
+                            <span aria-hidden="true">🗺️</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Logistics -->
+                <div class="contact-card logistics" tabindex="0" role="button" aria-label="Logistics contact information">
+                    <div class="contact-card-content">
+                        <div class="contact-icon" aria-hidden="true">🚚</div>
+                        <h3 class="contact-title">Logistics</h3>
+                        <div class="contact-info">
+                            <p>logistics@proteogen.com</p>
+                            <p>Shipping & Delivery</p>
+                        </div>
+                        <a href="mailto:logistics@proteogen.com" class="contact-action" aria-label="Contact logistics team">
+                            <span>Contact Logistics</span>
+                            <span aria-hidden="true">📦</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Technical Support -->
+                <div class="contact-card technical" tabindex="0" role="button" aria-label="Technical support contact information">
+                    <div class="contact-card-content">
+                        <div class="contact-icon" aria-hidden="true">🔧</div>
+                        <h3 class="contact-title">Technical Queries</h3>
+                        <div class="contact-info">
+                            <p>technical@proteogen.com</p>
+                            <p>Product support and troubleshooting</p>
+                        </div>
+                        <a href="mailto:technical@proteogen.com" class="contact-action" aria-label="Contact technical support">
+                            <span>Get Support</span>
+                            <span aria-hidden="true">🛠️</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Escalation -->
+                <div class="contact-card escalation" tabindex="0" role="button" aria-label="Escalation contact information">
+                    <div class="contact-card-content">
+                        <div class="contact-icon" aria-hidden="true">⚡</div>
+                        <h3 class="contact-title">Escalation</h3>
+                        <div class="contact-info">
+                            <p>operations@proteogen.com</p>
+                            <p>ganesh@proteogen.com</p>
+                            <p>sridhar@proteogen.com</p>
+                        </div>
+                        <a href="mailto:operations@proteogen.com" class="contact-action" aria-label="Contact escalation team">
+                            <span>Escalate Issue</span>
+                            <span aria-hidden="true">🚨</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Careers -->
+                <div class="contact-card careers" tabindex="0" role="button" aria-label="Careers contact information">
+                    <div class="contact-card-content">
+                        <div class="contact-icon" aria-hidden="true">👥</div>
+                        <h3 class="contact-title">Careers</h3>
+                        <div class="contact-info">
+                            <p>hr@proteogen.com</p>
+                            <p>Join our team and grow your career</p>
+                        </div>
+                        <a href="mailto:hr@proteogen.com" class="contact-action" aria-label="Contact HR for career opportunities">
+                            <span>Apply Now</span>
+                            <span aria-hidden="true">💼</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+                <!-- Contact Form Section -->
+    <section class="contact-form-section" id="contact-form">
+        <div class="contact-form-container">
+            <div class="contact-form-header">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-description">Ready to advance your research? Send us a message and our team will get back to you within 24 hours.</p>
             </div>
 
-            <!-- Customers Section -->
-            <div class="customers-section active" id="customers-content">
+            <div class="contact-form-wrapper">
+                <div class="contact-form-card">
+                    <form id="contact-form" method="POST" class="modern-contact-form">
+                        <!-- Success Message (Hidden by default) -->
+                        <div id="successMessage" class="success-message" style="display:none;">
+                            <div class="success-icon">✓</div>
+                            <h3>Message Sent Successfully!</h3>
+                            <p>Thank you for contacting us. We'll get back to you within 24 hours.</p>
+                        </div>
 
-                <!-- Intro strip -->
-                <div class="customers-intro">
-                    <div class="customers-intro-stat">
-                        <span class="ci-number">27</span>
-                        <span class="ci-label">Key Customers</span>
-                    </div>
-                    <div class="customers-intro-divider"></div>
-                    <div class="customers-intro-stat">
-                        <span class="ci-number">6</span>
-                        <span class="ci-label">Sectors Served</span>
-                    </div>
-                    <div class="customers-intro-divider"></div>
-                    <div class="customers-intro-stat">
-                        <span class="ci-number">20<span style="font-size:1.1rem">+</span></span>
-                        <span class="ci-label">Years of Trust</span>
-                    </div>
+                        <!-- Form Fields -->
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Full Name *</label>
+                                <div class="input-wrapper">
+                                    <input name="name" id="name" type="text" placeholder="Enter your full name" required class="form-input">
+                                    <div class="input-icon">👤</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="mail" class="form-label">Email Address *</label>
+                                <div class="input-wrapper">
+                                    <input name="email" id="mail" type="email" placeholder="Enter your email address" required class="form-input">
+                                    <div class="input-icon">📧</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="organization" class="form-label">Organization *</label>
+                                <div class="input-wrapper">
+                                    <input name="organization_name" id="organization" type="text" placeholder="Enter your organization name" required class="form-input">
+                                    <div class="input-icon">🏢</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number *</label>
+                                <div class="input-wrapper">
+                                    <input name="phone" id="phone" type="text" placeholder="Enter your phone number" required pattern="^[6-9]\d{9}$"
+                                        title="Enter a valid 10-digit mobile number starting with 6-9" class="form-input">
+                                    <div class="input-icon">📞</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group form-group-full">
+                                <label for="address" class="form-label">Communication Address *</label>
+                                <div class="input-wrapper">
+                                    <input name="address" id="address" type="text" placeholder="Enter your complete address" required class="form-input">
+                                    <div class="input-icon">📍</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group form-group-full">
+                                <label for="comment" class="form-label">Message</label>
+                                <div class="textarea-wrapper">
+                                    <textarea name="message" id="comment" placeholder="Tell us about your requirements, questions, or how we can help you..." rows="5" class="form-textarea"></textarea>
+                                    <div class="textarea-icon">💬</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" name="submit" class="btn btn-primary btn-submit" id="s">
+                                <span class="btn-text">Send Message</span>
+                                <span class="btn-icon">📤</span>
+                                <div class="btn-loading">
+                                    <div class="loading-spinner"></div>
+                                </div>
+                            </button>
+                            <div id="msg" class="message"></div>
+                        </div>
+                    </form>
                 </div>
 
-                <!-- Sector Cards -->
-                <div class="sector-grid">
-
-                    <!-- Hospitals -->
-                    <div class="sector-card">
-                        <div class="sector-header">
-                            <div class="sector-icon-wrap">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/><line x1="12" y1="5" x2="12" y2="9"/><line x1="10" y1="7" x2="14" y2="7"/></svg>
-                            </div>
-                            <div class="sector-title-wrap">
-                                <h4 class="sector-title">Hospitals</h4>
-                                <span class="sector-count">6 clients</span>
-                            </div>
-                        </div>
-                        <ul class="sector-list">
-                            <li>Kasturba Hospital, Manipal</li>
-                            <li>Narayana Hrudayalaya</li>
-                            <li>St. John's Medical College (CBCI)</li>
-                            <li>Aster Clinical Lab</li>
-                            <li>Sri Shankara Cancer Foundation</li>
-                            <li>A.J. Hospital &amp; Research Centre</li>
-                        </ul>
-                    </div>
-
-                    <!-- Research Institutes -->
-                    <div class="sector-card">
-                        <div class="sector-header">
-                            <div class="sector-icon-wrap">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
-                            </div>
-                            <div class="sector-title-wrap">
-                                <h4 class="sector-title">Research Institutes</h4>
-                                <span class="sector-count">5 clients</span>
-                            </div>
-                        </div>
-                        <ul class="sector-list">
-                            <li>Indian Institute of Science (IISc)</li>
-                            <li>NIMHANS</li>
-                            <li>National Centre for Biological Sciences (NCBS)</li>
-                            <li>JNCASR</li>
-                            <li>CSIR-CFTRI, Mysore</li>
-                        </ul>
-                    </div>
-
-                    <!-- Universities -->
-                    <div class="sector-card">
-                        <div class="sector-header">
-                            <div class="sector-icon-wrap">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                            </div>
-                            <div class="sector-title-wrap">
-                                <h4 class="sector-title">Universities &amp; Deemed Universities</h4>
-                                <span class="sector-count">4 clients</span>
-                            </div>
-                        </div>
-                        <ul class="sector-list">
-                            <li>Bangalore University</li>
-                            <li>Mysore University</li>
-                            <li>IIT Dharwad</li>
-                            <li>Manipal Academy of Higher Education (MAHE)</li>
-                        </ul>
-                    </div>
-
-                    <!-- CRO -->
-                    <div class="sector-card">
-                        <div class="sector-header">
-                            <div class="sector-icon-wrap">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2v6l3 3-3 3v6h12v-6l-3-3 3-3V2z"/><line x1="6" y1="7" x2="18" y2="7"/><line x1="6" y1="17" x2="18" y2="17"/></svg>
-                            </div>
-                            <div class="sector-title-wrap">
-                                <h4 class="sector-title">CRO</h4>
-                                <span class="sector-count">5 clients</span>
-                            </div>
-                        </div>
-                        <ul class="sector-list">
-                            <li>Syngene International Ltd</li>
-                            <li>Aurigene Oncology Limited</li>
-                            <li>Aurigene Pharmaceutical Services Limited</li>
-                            <li>Jubilant Biosys Limited</li>
-                            <li>Eurofins</li>
-                        </ul>
-                    </div>
-
-                    <!-- Industry -->
-                    <div class="sector-card">
-                        <div class="sector-header">
-                            <div class="sector-icon-wrap">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
-                            </div>
-                            <div class="sector-title-wrap">
-                                <h4 class="sector-title">Industry</h4>
-                                <span class="sector-count">3 clients</span>
-                            </div>
-                        </div>
-                        <ul class="sector-list">
-                            <li>Biocon</li>
-                            <li>Beckman Coulter</li>
-                            <li>Immuneel Therapeutics Private Limited</li>
-                        </ul>
-                    </div>
-
-                    <!-- Startups -->
-                    <div class="sector-card">
-                        <div class="sector-header">
-                            <div class="sector-icon-wrap">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                            </div>
-                            <div class="sector-title-wrap">
-                                <h4 class="sector-title">Startups</h4>
-                                <span class="sector-count">4 clients</span>
-                            </div>
-                        </div>
-                        <ul class="sector-list">
-                            <li>Bugworks Research India Private Limited</li>
-                            <li>ImmunitasBio Private Limited</li>
-                            <li>Metahelix Lifesciences Pvt Ltd</li>
-                            <li>Jivanu Therapeutics Private Limited</li>
-                        </ul>
-                    </div>
-
-                </div><!-- /.sector-grid -->
-            </div>
-
-            <!-- Awards Section -->
-            <div class="awards-section" id="awards-content">
-
-                <!-- Award Certificates -->
-                <div class="award-certificates-section">
-                    <h3 class="subsection-title">Award Certificates</h3>
-                    <div class="certificates-grid">
-                        <div class="certificate-item" role="button" tabindex="0" aria-label="View Best Partner Award certificate"
-                             data-image="Awards/AR_1.jpg" data-title="Best Partner Award" data-description="BD Biosciences — 2023">
-                            <img src="Awards/AR_1.jpg" alt="Proteogen Award Certificate 1" loading="lazy">
-                            <div class="certificate-overlay">
-                                <div class="certificate-view-icon">🔍</div>
-                            </div>
-                            <div class="certificate-caption">
-                                <h4>Best Partner Award</h4>
-                                <p>BD Biosciences &mdash; 2023</p>
-                            </div>
-                        </div>
-                        <div class="certificate-item" role="button" tabindex="0" aria-label="View Excellence in Distribution certificate"
-                             data-image="Awards/AR_2.jpg" data-title="Excellence in Distribution" data-description="Indian Life Sciences Industry Association — 2024">
-                            <img src="Awards/AR_2.jpg" alt="Proteogen Award Certificate 2" loading="lazy">
-                            <div class="certificate-overlay">
-                                <div class="certificate-view-icon">🔍</div>
-                            </div>
-                            <div class="certificate-caption">
-                                <h4>Excellence in Distribution</h4>
-                                <p>Indian Life Sciences Industry Association &mdash; 2024</p>
-                            </div>
-                        </div>
-                        <div class="certificate-item" role="button" tabindex="0" aria-label="View Innovation in Customer Service certificate"
-                             data-image="Awards/AR_3.jpg" data-title="Innovation in Customer Service" data-description="Bio-Rad Laboratories — 2022">
-                            <img src="Awards/AR_3.jpg" alt="Proteogen Award Certificate 3" loading="lazy">
-                            <div class="certificate-overlay">
-                                <div class="certificate-view-icon">🔍</div>
-                            </div>
-                            <div class="certificate-caption">
-                                <h4>Innovation in Customer Service</h4>
-                                <p>Bio-Rad Laboratories &mdash; 2022</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Awards Timeline -->
-                <div class="awards-timeline-section">
-                    <h3 class="subsection-title">Recognition Timeline</h3>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-marker">
-                                <div class="timeline-year">2024</div>
-                            </div>
-                            <div class="timeline-content">
-                                <div class="award-card">
-                                    <div class="award-icon">🏆</div>
-                                    <h4 class="award-title">Excellence in Life Sciences Distribution</h4>
-                                    <p class="award-issuer">Indian Life Sciences Industry Association</p>
-                                    <p class="award-description">Recognized for outstanding contribution to advancing life sciences research through innovative product distribution and technical support services.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-marker">
-                                <div class="timeline-year">2023</div>
-                            </div>
-                            <div class="timeline-content">
-                                <div class="award-card">
-                                    <div class="award-icon">🥇</div>
-                                    <h4 class="award-title">Best Partner Award</h4>
-                                    <p class="award-issuer">BD Biosciences</p>
-                                    <p class="award-description">Awarded for exceptional sales performance and customer satisfaction in flow cytometry solutions across the Indian market.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-marker">
-                                <div class="timeline-year">2022</div>
-                            </div>
-                            <div class="timeline-content">
-                                <div class="award-card">
-                                    <div class="award-icon">🌟</div>
-                                    <h4 class="award-title">Innovation in Customer Service</h4>
-                                    <p class="award-issuer">Bio-Rad Laboratories</p>
-                                    <p class="award-description">Recognized for implementing innovative customer support solutions and maintaining highest service standards in the region.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-marker">
-                                <div class="timeline-year">2021</div>
-                            </div>
-                            <div class="timeline-content">
-                                <div class="award-card">
-                                    <div class="award-icon">🎖️</div>
-                                    <h4 class="award-title">Outstanding Distributor Achievement</h4>
-                                    <p class="award-issuer">Molecular Devices</p>
-                                    <p class="award-description">Honored for exceptional growth in microplate reader and imaging system sales, contributing to research advancement in India.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-marker">
-                                <div class="timeline-year">2020</div>
-                            </div>
-                            <div class="timeline-content">
-                                <div class="award-card">
-                                    <div class="award-icon">🏅</div>
-                                    <h4 class="award-title">COVID-19 Response Excellence</h4>
-                                    <p class="award-issuer">Promega Corporation</p>
-                                    <p class="award-description">Special recognition for maintaining critical supply chains and supporting diagnostic laboratories during the pandemic response.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certifications and Badges -->
-                <div class="certifications-section">
-                    <h3 class="subsection-title">Certifications & Accreditations</h3>
-                    <div class="certifications-grid">
-                        <div class="certification-card">
-                            <div class="cert-badge">
-                                <div class="cert-icon">📜</div>
-                                <h4 class="cert-title">ISO 9001:2015</h4>
-                                <p class="cert-description">Quality Management System certification ensuring consistent service delivery and customer satisfaction.</p>
-                                <div class="cert-details">
-                                    <span class="cert-issuer">Bureau Veritas</span>
-                                    <span class="cert-date">Valid until 2026</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="certification-card">
-                            <div class="cert-badge">
-                                <div class="cert-icon">🏢</div>
-                                <h4 class="cert-title">MSME Certified</h4>
-                                <p class="cert-description">Micro, Small & Medium Enterprises certification supporting Indian government initiatives for business growth.</p>
-                                <div class="cert-details">
-                                    <span class="cert-issuer">Ministry of MSME</span>
-                                    <span class="cert-date">Government of India</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="certification-card">
-                            <div class="cert-badge">
-                                <div class="cert-icon">🔒</div>
-                                <h4 class="cert-title">Data Security Compliance</h4>
-                                <p class="cert-description">Adherence to international data protection standards ensuring customer information security and privacy.</p>
-                                <div class="cert-details">
-                                    <span class="cert-issuer">Security Audit</span>
-                                    <span class="cert-date">Annual Review</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="certification-card">
-                            <div class="cert-badge">
-                                <div class="cert-icon">🌱</div>
-                                <h4 class="cert-title">Environmental Compliance</h4>
-                                <p class="cert-description">Commitment to environmental sustainability and responsible business practices in all operations.</p>
-                                <div class="cert-details">
-                                    <span class="cert-issuer">Environmental Board</span>
-                                    <span class="cert-date">Karnataka State</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Achievement Highlights -->
-                <div class="achievements-section">
-                    <h3 class="subsection-title">Key Achievements</h3>
-                    <div class="achievements-grid">
-                        <div class="achievement-item">
-                            <div class="achievement-icon">📈</div>
-                            <div class="achievement-content">
-                                <h4 class="achievement-title">20+ Years of Excellence</h4>
-                                <p class="achievement-description">Two decades of consistent growth and innovation in the life sciences industry, serving researchers across India and beyond.</p>
-                            </div>
-                        </div>
-
-                        <div class="achievement-item">
-                            <div class="achievement-icon">🤝</div>
-                            <div class="achievement-content">
-                                <h4 class="achievement-title">Global Partnerships</h4>
-                                <p class="achievement-description">Exclusive partnerships with world-leading manufacturers including BD Biosciences, Bio-Rad, Promega, and Molecular Devices.</p>
-                            </div>
-                        </div>
-
-                        <div class="achievement-item">
-                            <div class="achievement-icon">🎓</div>
-                            <div class="achievement-content">
-                                <h4 class="achievement-title">Training Excellence</h4>
-                                <p class="achievement-description">Trained over 5,000 researchers and technicians on advanced life sciences instrumentation and methodologies.</p>
-                            </div>
-                        </div>
-
-                        <div class="achievement-item">
-                            <div class="achievement-icon">🔬</div>
-                            <div class="achievement-content">
-                                <h4 class="achievement-title">Research Impact</h4>
-                                <p class="achievement-description">Our instruments have contributed to over 1,000 published research papers and breakthrough discoveries in life sciences.</p>
-                            </div>
-                        </div>
-
-                        <div class="achievement-item">
-                            <div class="achievement-icon">🌍</div>
-                            <div class="achievement-content">
-                                <h4 class="achievement-title">Regional Leadership</h4>
-                                <p class="achievement-description">Leading distributor in South Asia for premium life sciences equipment, with expanding presence across the region.</p>
-                            </div>
-                        </div>
-
-                        <div class="achievement-item">
-                            <div class="achievement-icon">💡</div>
-                            <div class="achievement-content">
-                                <h4 class="achievement-title">Innovation Support</h4>
-                                <p class="achievement-description">Enabling cutting-edge research in genomics, proteomics, cell biology, and drug discovery through advanced instrumentation.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
-
-    <!-- Career Opportunities Section -->
-    <section class="careers-section" id="careers" role="main" aria-labelledby="careers-heading">
-        <div class="container">
-            <!-- Company Culture Showcase -->
-            <div class="culture-showcase" role="region" aria-labelledby="culture-heading">
-                <h2 id="culture-heading" class="section-title">Why Choose ProteGen?</h2>
+            <!-- Location Map Section -->
+            <div class="location-map-section">
+                <div class="map-header">
+                    <h3>Visit Our Office</h3>
+                    <p>Find us at our Bangalore location. We're easily accessible and look forward to welcoming you.</p>
+                </div>
                 
-                <div class="culture-content">
-                    <div class="culture-description">
-                        <div class="culture-text">
-                            <p class="lead-text">ProteGen offers a dynamic and inclusive workplace where individuals can thrive professionally and personally. We provide a wide range of career opportunities across various functions including Sales, Marketing, Business Development, Accounts, Logistics, Operations and Customer support primarily in the Life Science Business Segment.</p>
-                            
-                            <p>We are committed to fostering growth through continuous learning, mentorship and career development opportunities. Employees are encouraged to take initiative, collaborate across teams, and contribute to innovative work that make meaningful impact.</p>
-                            
-                            <p>Join us to be part of a forward-thinking company that values diversity, promotes work-life balance, and invests in the success of its people.</p>
-                        </div>
-                    </div>
-
-                    <div class="culture-values">
-                        <div class="values-grid">
-                            <div class="value-card" data-aos="fade-up" data-aos-delay="100">
-                                <div class="value-icon">
-                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M9 12l2 2 4-4"/>
-                                        <circle cx="12" cy="12" r="9"/>
-                                    </svg>
-                                </div>
-                                <h3>Innovation Excellence</h3>
-                                <p>Drive breakthrough solutions in life sciences with cutting-edge technology and research</p>
-                            </div>
-                            
-                            <div class="value-card" data-aos="fade-up" data-aos-delay="200">
-                                <div class="value-icon">
-                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                        <circle cx="9" cy="7" r="4"/>
-                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                                    </svg>
-                                </div>
-                                <h3>Collaborative Culture</h3>
-                                <p>Work in diverse, inclusive teams that value every perspective and contribution</p>
-                            </div>
-                            
-                            <div class="value-card" data-aos="fade-up" data-aos-delay="300">
-                                <div class="value-icon">
-                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                                    </svg>
-                                </div>
-                                <h3>Growth Mindset</h3>
-                                <p>Continuous learning opportunities with mentorship and career development programs</p>
-                            </div>
-                            
-                            <div class="value-card" data-aos="fade-up" data-aos-delay="400">
-                                <div class="value-icon">
-                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <circle cx="12" cy="12" r="10"/>
-                                        <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
-                                        <line x1="9" y1="9" x2="9.01" y2="9"/>
-                                        <line x1="15" y1="9" x2="15.01" y2="9"/>
-                                    </svg>
-                                </div>
-                                <h3>Work-Life Balance</h3>
-                                <p>Flexible arrangements and supportive environment for personal and professional well-being</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Job Opportunities Section -->
-            <div class="jobs-section" role="region" aria-labelledby="jobs-heading">
-                <div class="jobs-header">
-                    <h2 id="jobs-heading" class="section-title">Current Opportunities</h2>
-                    <p class="section-subtitle">Discover your next career move with us</p>
-                </div>
-
-                <!-- Job Listings -->
-                <div class="jobs-grid" id="jobsGrid" role="list" aria-label="Available job positions">
-                    <!-- Service Engineer Position -->
-                    <article class="job-card modern-card" data-department="technical" data-location="bangalore" data-experience="mid" role="listitem">
-                        <div class="job-card-header">
-                            <div class="job-title-section">
-                                <h3 class="job-title">Service Engineer</h3>
-                                <div class="job-badges">
-                                    <span class="badge badge-department">Technical</span>
-                                    <span class="badge badge-type">Full-time</span>
-                                    <span class="badge badge-new">New</span>
-                                </div>
-                            </div>
-                            <div class="job-meta">
-                                <div class="job-location">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                        <circle cx="12" cy="10" r="3"/>
-                                    </svg>
-                                    Bangalore, India
-                                </div>
-                                <div class="job-experience">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <circle cx="12" cy="12" r="10"/>
-                                        <polyline points="12,6 12,12 16,14"/>
-                                    </svg>
-                                    3-5 years
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="job-card-body">
-                            <p class="job-description">
-                                We are looking for a skilled Service Engineer to join our technical support team. You'll be responsible for maintaining and troubleshooting life science equipment, providing technical support to clients, and ensuring optimal performance of our products.
-                            </p>
-                            
-                            <div class="job-highlights">
-                                <h4>Key Responsibilities:</h4>
-                                <ul>
-                                    <li>Equipment installation and maintenance</li>
-                                    <li>Technical troubleshooting and support</li>
-                                    <li>Client training and documentation</li>
-                                    <li>Field service and remote support</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="job-card-footer">
-                            <div class="job-actions">
-                                <a href="#" class="btn btn-primary job-apply-btn" onclick="window.open('#', '_blank')" aria-label="Download Service Engineer job description">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                                        <polyline points="7,10 12,15 17,10"/>
-                                        <line x1="12" y1="15" x2="12" y2="3"/>
-                                    </svg>
-                                    Download JD
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Area Manager Position -->
-                    <article class="job-card modern-card" data-department="sales" data-location="mumbai" data-experience="senior" role="listitem">
-                        <div class="job-card-header">
-                            <div class="job-title-section">
-                                <h3 class="job-title">Area Manager - Sales</h3>
-                                <div class="job-badges">
-                                    <span class="badge badge-department">Sales</span>
-                                    <span class="badge badge-type">Full-time</span>
-                                    <span class="badge badge-urgent">Urgent</span>
-                                </div>
-                            </div>
-                            <div class="job-meta">
-                                <div class="job-location">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                        <circle cx="12" cy="10" r="3"/>
-                                    </svg>
-                                    Multiple Locations
-                                </div>
-                                <div class="job-experience">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <circle cx="12" cy="12" r="10"/>
-                                        <polyline points="12,6 12,12 16,14"/>
-                                    </svg>
-                                    5+ years
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="job-card-body">
-                            <p class="job-description">
-                                Seeking an experienced Area Manager to drive sales growth in assigned territories. You'll lead sales initiatives, manage client relationships, and expand our market presence in the life sciences sector.
-                            </p>
-                            
-                            <div class="job-highlights">
-                                <h4>Key Responsibilities:</h4>
-                                <ul>
-                                    <li>Territory management and sales strategy</li>
-                                    <li>Client relationship development</li>
-                                    <li>Market analysis and opportunity identification</li>
-                                    <li>Team leadership and performance management</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="job-card-footer">
-                            <div class="job-actions">
-                                <a href="#" class="btn btn-primary job-apply-btn" onclick="window.open('#', '_blank')" aria-label="Download Area Manager job description">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                                        <polyline points="7,10 12,15 17,10"/>
-                                        <line x1="12" y1="15" x2="12" y2="3"/>
-                                    </svg>
-                                    Download JD
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-            </div>
-
-            <!-- Application Process -->
-            <div class="application-section" role="region" aria-labelledby="application-heading">
-                <div class="application-container">
-                    <div class="application-content">
-                        <h2 id="application-heading" class="section-title">Ready to Join Us?</h2>
-                        <p class="section-subtitle">Take the first step towards an exciting career in life sciences</p>
-                        
-                        <div class="application-methods">
-                            <div class="application-card primary-method">
-                                <div class="application-icon">
-                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                        <polyline points="22,6 12,13 2,6"/>
-                                    </svg>
-                                </div>
-                                <h3>Email Application</h3>
-                                <p>Send your resume directly to our HR team</p>
-                                <div class="application-details">
-                                    <p><strong>Email:</strong> <a href="mailto:hr@proteogen.com" class="email-link">hr@proteogen.com</a></p>
-                                    <p><strong>Format:</strong> Word/PDF/Doc only</p>
-                                    <p><strong>Subject:</strong> Application for [Position Name]</p>
-                                </div>
-                                <a href="mailto:hr@proteogen.com?subject=Job Application - ProteGen Careers" class="btn btn-primary btn-large">
+                <div class="map-container">
+                    <div class="map-info">
+                        <div class="location-details">
+                            <h4>Proteogen Biosciences India Private Limited</h4>
+                            <div class="address-details">
+                                <div class="address-item">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                        <polyline points="22,6 12,13 2,6"/>
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
                                     </svg>
-                                    Send Application
+                                    <div>
+                                        <strong>Registered Office:</strong><br>
+                                        <strong> Biosciences (India) Private Limited</strong>
+                                        #3C-1003, 3rd cross, 1st block<br>
+                                        HRBR Layout, Banaswadi<br>
+                                        Bengaluru - 560043
+                                    </div>
+                                </div>
+                                <div class="address-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                    <div>
+                                        <strong> Corporate Office:</strong><br>
+                                        <strong> Biosciences (India) Private Limited</strong>
+                                        10M-231, 100ft Road<br>
+                                        HRBR LAYOUT IST BLOCK<br>
+                                        Bengaluru - 560043
+                                    </div>
+                                </div>
+                                <div class="address-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <polyline points="12,6 12,12 16,14"/>
+                                    </svg>
+                                    <div>
+                                        <strong>Timings:</strong><br>
+                                        Monday - Friday: 9:00 AM - 6:00 PM<br>
+                                        Saturday & Sunday: Closed
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="map-actions">
+                                <a href="https://maps.app.goo.gl/dAWBv7C6DxKojNd98"
+                                   target="_blank"
+                                   class="btn btn-primary map-directions-btn"
+                                   aria-label="Get directions to Proteogen Biosciences">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                    Get Directions
                                 </a>
                             </div>
                         </div>
-
                     </div>
+                    
+                    <div class="map-embed">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4560.461652192824!2d77.6548038!3d13.018167799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d5eb4831879%3A0x48b140e34b5d6b67!2sProteogen%20Biosciences%20India%20Private%20Limited!5e1!3m2!1sen!2sin!4v1781083094920!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <br/>
+                       <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9120.966780325694!2d77.6511273!3d13.0169865!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1700651240ff%3A0xfc706c1d656a86d9!2sProteogen%20Bioscience%20India%20PVT%20LTD%20corporate%20office!5e1!3m2!1sen!2sin!4v1781082955068!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    
                 </div>
             </div>
         </div>
     </section>
+
+
     </main>
 
     <!-- Scroll to Top Button -->
