@@ -4498,7 +4498,7 @@
                     const formData      = new FormData(contactForm);
                     const serializedData = new URLSearchParams(formData).toString();
 
-                    fetch('send_mail.php', {
+                    fetch('contact.php', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                         body: serializedData
