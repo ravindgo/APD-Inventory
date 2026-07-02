@@ -902,470 +902,7 @@
             }, 30000); // Check every 30 seconds
         }
 
-        // Modern Downloads Section Functionality
-        class DownloadsManager {
-            constructor() {
-                this.searchInput = document.getElementById('downloadSearch');
-                this.filterTabs = document.querySelectorAll('.filter-tab');
-                this.downloadCategories = document.querySelectorAll('.downloads-category');
-                this.categoryToggles = document.querySelectorAll('.category-toggle');
-                this.downloadLinks = document.querySelectorAll('.download-link');
-                
-                this.init();
-            }
-
-            init() {
-                this.setupSearchFunctionality();
-                this.setupFilterTabs();
-                this.setupCategoryToggles();
-                this.setupDownloadTracking();
-                this.setupKeyboardNavigation();
-                this.setupAccessibility();
-            }
-
-            setupSearchFunctionality() {
-                if (this.searchInput) {
-                    this.searchInput.addEventListener('input', (e) => {
-                        const searchTerm = e.target.value.toLowerCase();
-                        this.filterDownloads(searchTerm, this.getActiveFilter());
-                    });
-
-                    // Add search suggestions/autocomplete
-                    this.searchInput.addEventListener('focus', () => {
-                        this.searchInput.setAttribute('placeholder', 'Try: "PCR", "Safety", "Manual"...');
-                    });
-
-                    this.searchInput.addEventListener('blur', () => {
-                        this.searchInput.setAttribute('placeholder', 'Search downloads...');
-                    });
-                }
-            }
-
-            setupFilterTabs() {
-                this.filterTabs.forEach(tab => {
-                    tab.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        
-                        // Update active tab with animation
-                        this.filterTabs.forEach(t => t.classList.remove('active'));
-                        tab.classList.add('active');
-                        
-                        const category = tab.dataset.category;
-                        const searchTerm = this.searchInput ? this.searchInput.value.toLowerCase() : '';
-                        
-                        this.filterDownloads(searchTerm, category);
-                        this.trackFilterUsage(category);
-                    });
-
-                    // Add keyboard support
-                    tab.addEventListener('keydown', (e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            tab.click();
-                        }
-                    });
-                });
-            }
-
-            setupCategoryToggles() {
-                this.categoryToggles.forEach(toggle => {
-                    toggle.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        const category = toggle.closest('.downloads-category');
-                        this.toggleCategory(category);
-                    });
-
-                    // Keyboard support
-                    toggle.addEventListener('keydown', (e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            toggle.click();
-                        }
-                    });
-                });
-            }
-
-            setupDownloadTracking() {
-                this.downloadLinks.forEach(link => {
-                    link.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        
-                        const downloadName = link.closest('.download-row').querySelector('h4').textContent;
-                        const category = link.closest('.downloads-accordion-item').querySelector('h3').textContent;
-                        
-                        this.handleDownload(downloadName, category, link);
-                    });
-                });
-            }
-
-            setupKeyboardNavigation() {
-                // Arrow key navigation for download rows
-                document.addEventListener('keydown', (e) => {
-                    if (!this.isDownloadsSection()) return;
-
-                    const focusedElement = document.activeElement;
-                    const downloadRows = Array.from(document.querySelectorAll('.download-row'));
-                    const currentIndex = downloadRows.findIndex(row => row.contains(focusedElement));
-
-                    if (currentIndex === -1) return;
-
-                    switch(e.key) {
-                        case 'ArrowDown':
-                            e.preventDefault();
-                            this.focusNextRow(downloadRows, currentIndex);
-                            break;
-                        case 'ArrowUp':
-                            e.preventDefault();
-                            this.focusPreviousRow(downloadRows, currentIndex);
-                            break;
-                        case 'Home':
-                            e.preventDefault();
-                            this.focusFirstRow(downloadRows);
-                            break;
-                        case 'End':
-                            e.preventDefault();
-                            this.focusLastRow(downloadRows);
-                            break;
-                    }
-                });
-            }
-
-            setupAccessibility() {
-                // Add ARIA labels and descriptions
-                this.downloadCategories.forEach((category, index) => {
-                    const header = category.querySelector('.category-header');
-                    const table = category.querySelector('.downloads-table');
-                    const toggle = category.querySelector('.category-toggle');
-                    
-                    const headerId = `downloads-category-${index}`;
-                    const tableId = `downloads-table-${index}`;
-                    
-                    header.setAttribute('id', headerId);
-                    header.setAttribute('role', 'button');
-                    header.setAttribute('aria-expanded', 'true');
-                    header.setAttribute('aria-controls', tableId);
-                    
-                    table.setAttribute('id', tableId);
-                    table.setAttribute('aria-labelledby', headerId);
-                    table.setAttribute('role', 'table');
-                    
-                    toggle.setAttribute('aria-label', `Toggle ${category.querySelector('h3').textContent} category`);
-                });
-
-                // Add download link accessibility
-                this.downloadLinks.forEach(link => {
-                    const fileName = link.closest('.download-row').querySelector('h4').textContent;
-                    const fileType = link.closest('.download-row').querySelector('.file-type').textContent;
-                    const fileSize = link.closest('.download-row').querySelector('.file-size')?.textContent;
-                    
-                    link.setAttribute('aria-label', `Download ${fileName} (${fileType}, ${fileSize})`);
-                });
-            }
-
-            toggleCategory(category) {
-                const isCollapsed = category.classList.contains('collapsed');
-                const toggle = category.querySelector('.category-toggle');
-                const header = category.querySelector('.category-header');
-                
-                if (isCollapsed) {
-                    category.classList.remove('collapsed');
-                    header.setAttribute('aria-expanded', 'true');
-                    toggle.setAttribute('aria-label', toggle.getAttribute('aria-label').replace('Expand', 'Collapse'));
-                } else {
-                    category.classList.add('collapsed');
-                    header.setAttribute('aria-expanded', 'false');
-                    toggle.setAttribute('aria-label', toggle.getAttribute('aria-label').replace('Collapse', 'Expand'));
-                }
-
-                // Animate the toggle icon
-                const svg = toggle.querySelector('svg');
-                if (svg) {
-                    svg.style.transform = isCollapsed ? 'rotate(0deg)' : 'rotate(-90deg)';
-                }
-
-                this.trackCategoryToggle(category.querySelector('h3').textContent, !isCollapsed);
-            }
-
-            filterDownloads(searchTerm, category) {
-                this.downloadCategories.forEach(categoryElement => {
-                    const categoryName = categoryElement.dataset.category;
-                    const downloadRows = categoryElement.querySelectorAll('.download-row');
-                    let visibleRows = 0;
-
-                    // Show/hide category based on filter
-                    const categoryMatches = category === 'all' || categoryName === category;
-                    
-                    if (!categoryMatches) {
-                        categoryElement.style.display = 'none';
-                        return;
-                    }
-
-                    categoryElement.style.display = 'block';
-
-                    // Filter individual download rows
-                    downloadRows.forEach(row => {
-                        const title = row.querySelector('h4').textContent.toLowerCase();
-                        const description = row.querySelector('p').textContent.toLowerCase();
-                        
-                        const matchesSearch = !searchTerm ||
-                            title.includes(searchTerm) ||
-                            description.includes(searchTerm);
-
-                        if (matchesSearch) {
-                            row.style.display = 'flex';
-                            row.style.animation = 'fadeInUp 0.3s ease';
-                            visibleRows++;
-                        } else {
-                            row.style.display = 'none';
-                        }
-                    });
-
-                    // Update category count
-                    const countElement = categoryElement.querySelector('.category-count');
-                    if (countElement) {
-                        countElement.textContent = `${visibleRows} item${visibleRows !== 1 ? 's' : ''}`;
-                    }
-
-                    // Hide category if no visible rows
-                    if (visibleRows === 0 && searchTerm) {
-                        categoryElement.style.display = 'none';
-                    }
-                });
-
-                this.updateSearchResults(searchTerm, category);
-            }
-
-            handleDownload(fileName, category, linkElement) {
-                // Add loading state
-                linkElement.classList.add('downloading');
-                const originalText = linkElement.querySelector('span').textContent;
-                linkElement.querySelector('span').textContent = 'Downloading...';
-
-                // Show download notification
-                this.showDownloadNotification(fileName);
-
-                // Simulate download process
-                setTimeout(() => {
-                    linkElement.classList.remove('downloading');
-                    linkElement.querySelector('span').textContent = originalText;
-                    
-                    // Track download
-                    this.trackDownload(fileName, category);
-                    
-                    // In a real implementation, this would trigger the actual download
-                    console.log(`Download initiated: ${fileName} from ${category}`);
-                }, 1000);
-            }
-
-            showDownloadNotification(fileName) {
-                const notification = document.createElement('div');
-                notification.className = 'download-notification';
-                notification.innerHTML = `
-                    <div class="notification-icon">📥</div>
-                    <div class="notification-content">
-                        <strong>Download Started</strong>
-                        <p>${fileName}</p>
-                    </div>
-                    <button class="notification-close" aria-label="Close notification">×</button>
-                `;
-                
-                notification.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    background: linear-gradient(135deg, #FF6B35, #F7931E);
-                    color: white;
-                    padding: 1rem;
-                    border-radius: 12px;
-                    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
-                    z-index: 1000;
-                    display: flex;
-                    align-items: center;
-                    gap: 1rem;
-                    max-width: 350px;
-                    animation: slideInRight 0.3s ease;
-                `;
-
-                document.body.appendChild(notification);
-
-                // Auto-remove after 4 seconds
-                setTimeout(() => {
-                    if (notification.parentNode) {
-                        notification.style.animation = 'slideOutRight 0.3s ease';
-                        setTimeout(() => {
-                            if (notification.parentNode) {
-                                notification.parentNode.removeChild(notification);
-                            }
-                        }, 300);
-                    }
-                }, 4000);
-
-                // Manual close
-                const closeBtn = notification.querySelector('.notification-close');
-                closeBtn.addEventListener('click', () => {
-                    notification.style.animation = 'slideOutRight 0.3s ease';
-                    setTimeout(() => {
-                        if (notification.parentNode) {
-                            notification.parentNode.removeChild(notification);
-                        }
-                    }, 300);
-                });
-            }
-
-            // Helper methods
-            getActiveFilter() {
-                const activeTab = document.querySelector('.filter-tab.active');
-                return activeTab ? activeTab.dataset.category : 'all';
-            }
-
-            isDownloadsSection() {
-                const downloadsSection = document.getElementById('downloads');
-                return downloadsSection && downloadsSection.contains(document.activeElement);
-            }
-
-            focusNextRow(rows, currentIndex) {
-                const nextIndex = (currentIndex + 1) % rows.length;
-                const nextRow = rows[nextIndex];
-                const focusableElement = nextRow.querySelector('.download-link') || nextRow;
-                focusableElement.focus();
-            }
-
-            focusPreviousRow(rows, currentIndex) {
-                const prevIndex = currentIndex === 0 ? rows.length - 1 : currentIndex - 1;
-                const prevRow = rows[prevIndex];
-                const focusableElement = prevRow.querySelector('.download-link') || prevRow;
-                focusableElement.focus();
-            }
-
-            focusFirstRow(rows) {
-                if (rows.length > 0) {
-                    const firstRow = rows[0];
-                    const focusableElement = firstRow.querySelector('.download-link') || firstRow;
-                    focusableElement.focus();
-                }
-            }
-
-            focusLastRow(rows) {
-                if (rows.length > 0) {
-                    const lastRow = rows[rows.length - 1];
-                    const focusableElement = lastRow.querySelector('.download-link') || lastRow;
-                    focusableElement.focus();
-                }
-            }
-
-            updateSearchResults(searchTerm, category) {
-                const visibleRows = document.querySelectorAll('.download-row[style*="flex"]').length;
-                
-                // Update search results indicator (if exists)
-                let resultsIndicator = document.querySelector('.search-results-indicator');
-                if (!resultsIndicator && (searchTerm || category !== 'all')) {
-                    resultsIndicator = document.createElement('div');
-                    resultsIndicator.className = 'search-results-indicator';
-                    resultsIndicator.style.cssText = `
-                        text-align: center;
-                        padding: 1rem;
-                        color: var(--text-light);
-                        font-style: italic;
-                    `;
-                    
-                    const container = document.querySelector('.downloads-table-container');
-                    if (container) {
-                        container.parentNode.insertBefore(resultsIndicator, container);
-                    }
-                }
-
-                if (resultsIndicator) {
-                    if (searchTerm || category !== 'all') {
-                        let message = `Found ${visibleRows} download${visibleRows !== 1 ? 's' : ''}`;
-                        if (searchTerm) message += ` matching "${searchTerm}"`;
-                        if (category !== 'all') message += ` in ${category}`;
-                        
-                        resultsIndicator.textContent = message;
-                        resultsIndicator.style.display = 'block';
-                    } else {
-                        resultsIndicator.style.display = 'none';
-                    }
-                }
-            }
-
-            // Analytics tracking methods
-            trackDownload(fileName, category) {
-                console.log(`Download tracked: ${fileName} from ${category}`);
-                // Placeholder for analytics
-            }
-
-            trackFilterUsage(category) {
-                console.log(`Filter used: ${category}`);
-                // Placeholder for analytics
-            }
-
-            trackCategoryToggle(categoryName, isExpanded) {
-                console.log(`Category ${isExpanded ? 'expanded' : 'collapsed'}: ${categoryName}`);
-                // Placeholder for analytics
-            }
-        }
-
-        // Add notification animations
-        const downloadsStyles = document.createElement('style');
-        downloadsStyles.textContent = `
-            @keyframes slideInRight {
-                from {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-            }
-            
-            @keyframes slideOutRight {
-                from {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-                to {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-            }
-            
-            .download-link.downloading {
-                pointer-events: none;
-                opacity: 0.7;
-            }
-            
-            .download-link.downloading svg {
-                animation: spin 1s linear infinite;
-            }
-            
-            @keyframes spin {
-                from { transform: rotate(0deg); }
-                to { transform: rotate(360deg); }
-            }
-            
-            .notification-close {
-                background: none;
-                border: none;
-                color: white;
-                font-size: 1.2rem;
-                cursor: pointer;
-                padding: 0.25rem;
-                border-radius: 50%;
-                transition: background-color 0.3s ease;
-            }
-            
-            .notification-close:hover {
-                background: rgba(255, 255, 255, 0.2);
-            }
-        `;
-        document.head.appendChild(downloadsStyles);
-
-        // Initialize downloads manager
-        let downloadsManager;
-        document.addEventListener('DOMContentLoaded', () => {
-            downloadsManager = new DownloadsManager();
-        });
+        // Downloads accordion is handled by DownloadsAccordion class below
 
         // Career Section Functionality
         const deptTabs = document.querySelectorAll('.dept-tab');
@@ -1700,7 +1237,7 @@
 
         // Products Accordion Functionality
         const accordionItems = document.querySelectorAll('.accordion-item');
-        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        const accordionHeaders = document.querySelectorAll('#productsAccordion .accordion-header');
 
         // Initialize accordion - ensure all are closed initially
         accordionItems.forEach(item => {
@@ -3350,9 +2887,9 @@
             constructor() {
                 this.accordionContainer = document.querySelector('.downloads-accordion-container');
                 this.accordionItems = document.querySelectorAll('.downloads-accordion-item');
-                this.accordionHeaders = document.querySelectorAll('.accordion-header');
+                this.accordionHeaders = document.querySelectorAll('.downloads-accordion-container .accordion-header');
                 this.searchInput = document.getElementById('downloadSearch');
-                this.filterTabs = document.querySelectorAll('.filter-tab');
+                this.filterTabs = document.querySelectorAll('.downloads-controls .filter-tab');
                 
                 this.init();
             }
@@ -3388,6 +2925,7 @@
             }
 
             toggleAccordionPanel(targetItem) {
+                if (!targetItem) return;
                 const isCurrentlyActive = targetItem.classList.contains('active');
                 
                 // Close all panels (single-panel-open behavior)
@@ -3418,13 +2956,12 @@
             }
 
             setDefaultOpenPanel() {
-                // Set Bio-Rad panel as default open
-                const bioRadPanel = document.getElementById('bio-rad-content');
-                if (bioRadPanel) {
-                    const bioRadItem = bioRadPanel.closest('.downloads-accordion-item');
-                    if (bioRadItem) {
-                        bioRadItem.classList.add('active');
-                        const header = bioRadItem.querySelector('.accordion-header');
+                const bdPanel = document.getElementById('bd-content');
+                if (bdPanel) {
+                    const bdItem = bdPanel.closest('.downloads-accordion-item');
+                    if (bdItem) {
+                        bdItem.classList.add('active');
+                        const header = bdItem.querySelector('.accordion-header');
                         if (header) {
                             header.setAttribute('aria-expanded', 'true');
                         }
@@ -3564,7 +3101,7 @@
 
                 // If filtering by specific category, open that panel
                 if (category !== 'all') {
-                    const targetPanel = document.querySelector(`[data-category="${category}"]`);
+                    const targetPanel = this.accordionContainer.querySelector(`.downloads-accordion-item[data-category="${category}"]`);
                     if (targetPanel) {
                         this.accordionItems.forEach(item => {
                             item.classList.remove('active');
