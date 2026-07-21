@@ -145,7 +145,9 @@
     
     <!-- Prefetch non-critical resources -->
     <link rel="prefetch" href="images/Logo.jpg" as="image">
-    <link rel="prefetch" href="banners/banner1.jpg" as="image">
+
+    <!-- Preload the LCP image (hero carousel slide 1) -->
+    <link rel="preload" href="banners/banner1.jpg" as="image" fetchpriority="high">
 </head>
 <body>
     <!-- Navigation -->
@@ -190,6 +192,7 @@
                 <li><a href="#customers-awards">Customers & Awards</a></li>
                 <li><a href="#careers">Careers</a></li>
                 <li><a href="#downloads">Downloads</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
                 <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button></li>
                 <li>
@@ -241,6 +244,7 @@
                         <img src="banners/banner1.jpg"
                              alt="Laboratory Research - Advanced Molecular Biology Equipment"
                              loading="eager"
+                             fetchpriority="high"
                              width="600"
                              height="400">
                         <div class="carousel-overlay">
@@ -386,25 +390,25 @@
                     <p>Take a virtual tour of our modern facilities. <i>Click on the images for more details</i></p>
                     <div class="office-thumbnails-grid">
                         <div class="office-thumbnail-small" data-image="images/office_img1.jpg" data-title="Main Laboratory" data-description="Our primary research and development laboratory equipped with cutting-edge instruments">
-                            <img src="images/office_img1.jpg" alt="Main Laboratory" loading="lazy">
+                            <img src="images/office_img1-thumb.jpg" alt="Main Laboratory" loading="lazy">
                             <div class="thumbnail-overlay-small">
                                 <div class="view-icon-small">🔍</div>
                             </div>
                         </div>
                         <div class="office-thumbnail-small" data-image="images/office_img2.jpg" data-title="Conference Room" data-description="Modern meeting space for team collaboration and client presentations">
-                            <img src="images/office_img2.jpg" alt="Conference Room" loading="lazy">
+                            <img src="images/office_img2-thumb.jpg" alt="Conference Room" loading="lazy">
                             <div class="thumbnail-overlay-small">
                                 <div class="view-icon-small">🔍</div>
                             </div>
                         </div>
                         <div class="office-thumbnail-small" data-image="images/office_img3.jpg" data-title="Quality Control Lab" data-description="Dedicated quality assurance and testing facility ensuring product excellence">
-                            <img src="images/office_img3.jpg" alt="Quality Control Lab" loading="lazy">
+                            <img src="images/office_img3-thumb.jpg" alt="Quality Control Lab" loading="lazy">
                             <div class="thumbnail-overlay-small">
                                 <div class="view-icon-small">🔍</div>
                             </div>
                         </div>
                         <div class="office-thumbnail-small" data-image="images/office_img4.jpg" data-title="Reception Area" data-description="Welcoming entrance space showcasing our commitment to professionalism">
-                            <img src="images/office_img4.jpg" alt="Reception Area" loading="lazy">
+                            <img src="images/office_img4-thumb.jpg" alt="Reception Area" loading="lazy">
                             <div class="thumbnail-overlay-small">
                                 <div class="view-icon-small">🔍</div>
                             </div>
@@ -3737,6 +3741,160 @@ His vision is to establish ProteoGen Biosciences as a leading channel partner an
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Gallery</h2>
+                <p>A visual look at our milestones and moments. Browse by category below.</p>
+            </div>
+
+            <!-- Gallery Category Tabs -->
+            <div class="gallery-tabs" role="tablist" aria-label="Gallery categories">
+                <button class="filter-tab active" data-gallery-category="awards-2026" role="tab" aria-selected="true" aria-controls="gallery-awards-2026">Awards 2026</button>
+                <!-- Add future categories here, e.g.:
+                <button class="filter-tab" data-gallery-category="events-2026" role="tab" aria-selected="false" aria-controls="gallery-events-2026">Events 2026</button>
+                -->
+            </div>
+
+            <!-- Gallery Categories -->
+            <div class="gallery-categories" id="galleryCategories">
+                <div class="gallery-category active" data-category="awards-2026" id="gallery-awards-2026" role="tabpanel">
+                    <div class="gallery-grid">
+                        <div class="gallery-thumbnail" data-image="Gallery/Awards-2026/7157.JPG" data-title="Alpha Award" data-description="Proteogen Biosciences — 2026">
+                            <img src="Gallery/Awards-2026/7157.JPG" alt="Alpha Award thumbnail" loading="lazy">
+                            <div class="gallery-thumbnail-overlay">
+                                <div class="gallery-view-icon">🔍</div>
+                            </div>
+                            <div class="gallery-caption">
+                                 <h4>Team Achievement Award</h4>
+                                <p>Proteogen Biosciences — 2026</p>
+                            </div>
+                        </div>
+                        <div class="gallery-thumbnail" data-image="Gallery/Awards-2026/7196.JPG" data-title="Team Achievement Award" data-description="Proteogen Biosciences — 2026">
+                            <img src="Gallery/Awards-2026/7196.JPG" alt="Team Achievement Award thumbnail" loading="lazy">
+                            <div class="gallery-thumbnail-overlay">
+                                <div class="gallery-view-icon">🔍</div>
+                            </div>
+                            <div class="gallery-caption">
+                                 <h4>Team Achievement Award</h4>
+                                <p>Proteogen Biosciences — 2026</p>
+                            </div>
+                        </div>
+                        <div class="gallery-thumbnail" data-image="Gallery/Awards-2026/7359.JPG" data-title="Team Achievement Award" data-description="Proteogen Biosciences — 2026">
+                            <img src="Gallery/Awards-2026/7359.JPG" alt="Team Achievement Award thumbnail" loading="lazy">
+                            <div class="gallery-thumbnail-overlay">
+                                <div class="gallery-view-icon">🔍</div>
+                            </div>
+                            <div class="gallery-caption">
+                                 <h4>Team Achievement Award</h4>
+                                <p>Proteogen Biosciences — 2026</p>
+                            </div>
+                        </div>
+                        <div class="gallery-thumbnail" data-image="Gallery/Awards-2026/7412.JPG" data-title="Team Achievement Award" data-description="Proteogen Biosciences — 2026">
+                            <img src="Gallery/Awards-2026/7412.JPG" alt="Team Achievement Award thumbnail" loading="lazy">
+                            <div class="gallery-thumbnail-overlay">
+                                <div class="gallery-view-icon">🔍</div>
+                            </div>
+                            <div class="gallery-caption">
+                                 <h4>Team Achievement Award</h4>
+                                <p>Proteogen Biosciences — 2026</p>
+                            </div>
+                        </div>
+                        <div class="gallery-thumbnail" data-image="Gallery/Awards-2026/7467.JPG" data-title="Team Achievement Award" data-description="Proteogen Biosciences — 2026">
+                            <img src="Gallery/Awards-2026/7467.JPG" alt="Team Achievement Award thumbnail" loading="lazy">
+                            <div class="gallery-thumbnail-overlay">
+                                <div class="gallery-view-icon">🔍</div>
+                            </div>
+                            <div class="gallery-caption">
+                                 <h4>Team Achievement Award</h4>
+                                <p>Proteogen Biosciences — 2026</p>
+                            </div>
+                        </div>
+                        <div class="gallery-thumbnail" data-image="Gallery/Awards-2026/7489.JPG" data-title="Team Achievement Award" data-description="Proteogen Biosciences — 2026">
+                            <img src="Gallery/Awards-2026/7489.JPG" alt="Team Achievement Award thumbnail" loading="lazy">
+                            <div class="gallery-thumbnail-overlay">
+                                <div class="gallery-view-icon">🔍</div>
+                            </div>
+                            <div class="gallery-caption">
+                                <h4>Team Achievement Award</h4>
+                                <p>Proteogen Biosciences — 2026</p>
+                            </div>
+                        </div>
+                        <div class="gallery-thumbnail" data-image="Gallery/Awards-2026/7515.JPG" data-title="Team Achievement Award" data-description="Proteogen Biosciences — 2026">
+                            <img src="Gallery/Awards-2026/7515.JPG" alt="Team Achievement Award thumbnail" loading="lazy">
+                            <div class="gallery-thumbnail-overlay">
+                                <div class="gallery-view-icon">🔍</div>
+                            </div>
+                            <div class="gallery-caption">
+                                <h4>Team Achievement Award</h4>
+                                <p>Proteogen Biosciences — 2026</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add future category panels here, matching the pattern above,
+                     e.g. <div class="gallery-category" data-category="events-2026" id="gallery-events-2026" role="tabpanel">...</div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Modal -->
+    <div class="office-modal" id="galleryModal" aria-hidden="true" role="dialog" aria-labelledby="galleryModalTitle" aria-describedby="galleryModalDescription">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 id="galleryModalTitle" class="modal-title">Gallery Image</h2>
+                <button class="modal-close" id="galleryModalClose" aria-label="Close modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+
+            <div class="modal-content">
+                <div class="image-container">
+                    <img id="galleryModalImage" src="" alt="" class="modal-image">
+                    <div class="image-loading">
+                        <div class="loading-spinner-large"></div>
+                        <p>Loading image...</p>
+                    </div>
+                    <div class="image-error" style="display: none;">
+                        <div class="error-icon">⚠️</div>
+                        <p>Failed to load image</p>
+                        <button class="retry-btn">Retry</button>
+                    </div>
+                </div>
+
+                <div class="carousel-navigation">
+                    <button class="carousel-btn prev-btn" id="galleryPrevBtn" aria-label="Previous image">
+                        <span aria-hidden="true">‹</span>
+                    </button>
+                    <button class="carousel-btn next-btn" id="galleryNextBtn" aria-label="Next image">
+                        <span aria-hidden="true">›</span>
+                    </button>
+                </div>
+
+                <div class="image-counter">
+                    <span id="galleryCurrentIndex">1</span> / <span id="galleryTotalImages">6</span>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div class="image-info">
+                    <h3 id="galleryModalDescription" class="image-title">Image Title</h3>
+                    <p class="image-description">Image description</p>
+                </div>
+                <div class="modal-actions">
+                    <button class="action-btn fullscreen-btn" id="galleryFullscreenBtn" aria-label="Toggle fullscreen">
+                        <span aria-hidden="true">⛶</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section class="get-in-touch-section" id="contact">
         <div class="get-in-touch-container">
             <div class="get-in-touch-header">
@@ -4031,6 +4189,7 @@ His vision is to establish ProteoGen Biosciences as a leading channel partner an
                 <h4>Resources</h4>
                 <ul class="footer-links">
                     <li><a href="#downloads">Downloads</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#team">Our Team</a></li>
                     <li><a href="#contact-form">Technical Support</a></li>
                     <li><a href="#contact">Contact Us</a></li>
