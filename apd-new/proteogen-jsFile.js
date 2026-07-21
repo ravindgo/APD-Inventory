@@ -422,18 +422,26 @@
             }
 
             preloadImages() {
-                // Preload all carousel images for seamless transitions
-                this.slides.forEach(slide => {
-                    const img = slide.querySelector('img');
-                    if (img && img.src) {
-                        const preloadImg = new Image();
-                        preloadImg.src = img.src;
-                        
-                        // Set background image for seamless transitions
-                        slide.style.backgroundImage = `url(${img.src})`;
-                    }
-                });
-                console.log('All carousel images preloaded for seamless transitions');
+                // Slide 0 is already eager-loaded (it's the LCP element) - skip it,
+                // and defer preloading the rest until after first paint so this
+                // doesn't compete with the LCP image on the network/main thread.
+                const preloadRemainingSlides = () => {
+                    this.slides.forEach((slide, index) => {
+                        if (index === 0) return;
+                        const img = slide.querySelector('img');
+                        if (img && img.src) {
+                            const preloadImg = new Image();
+                            preloadImg.src = img.src;
+                        }
+                    });
+                    console.log('Remaining carousel images preloaded for seamless transitions');
+                };
+
+                if ('requestIdleCallback' in window) {
+                    requestIdleCallback(preloadRemainingSlides, { timeout: 2000 });
+                } else {
+                    setTimeout(preloadRemainingSlides, 200);
+                }
             }
             
             setupEventListeners() {
@@ -2173,11 +2181,21 @@
             }
 
             preloadImages() {
-                // Preload the first few images for better performance
-                const preloadCount = Math.min(2, this.images.length);
-                for (let i = 0; i < preloadCount; i++) {
-                    const img = new Image();
-                    img.src = this.images[i].src;
+                // Preload the first few images for better performance - deferred
+                // off the critical path so these 2.5MB+ photos don't compete
+                // with the LCP image on page load.
+                const preload = () => {
+                    const preloadCount = Math.min(2, this.images.length);
+                    for (let i = 0; i < preloadCount; i++) {
+                        const img = new Image();
+                        img.src = this.images[i].src;
+                    }
+                };
+
+                if ('requestIdleCallback' in window) {
+                    requestIdleCallback(preload, { timeout: 2000 });
+                } else {
+                    setTimeout(preload, 200);
                 }
             }
 
@@ -2815,6 +2833,250 @@
             }
         }
 
+        // Gallery Section — Category Tabs
+        // Designed so future categories can be added by dropping in a new
+        // ".filter-tab[data-gallery-category]" button + matching
+        // ".gallery-category[data-category]" panel — no JS changes required.
+        class GalleryTabs {
+            constructor() {
+                this.tabs = document.querySelectorAll('.gallery-tabs .filter-tab');
+                this.panels = document.querySelectorAll('.gallery-category');
+                this.tabs.forEach(tab => {
+                    tab.addEventListener('click', () => this.activate(tab.dataset.galleryCategory));
+                });
+            }
+
+            activate(category) {
+                this.tabs.forEach(tab => {
+                    const isActive = tab.dataset.galleryCategory === category;
+                    tab.classList.toggle('active', isActive);
+                    tab.setAttribute('aria-selected', String(isActive));
+                });
+                this.panels.forEach(panel => {
+                    panel.classList.toggle('active', panel.dataset.category === category);
+                });
+            }
+        }
+
+        // Gallery Modal System
+        // Navigation (prev/next) is scoped to the thumbnails within the
+        // clicked image's own ".gallery-category" panel, so each category
+        // added in the future gets its own independent image set automatically.
+        class GalleryModal {
+            constructor() {
+                this.modal = document.getElementById('galleryModal');
+                this.modalImage = document.getElementById('galleryModalImage');
+                this.modalTitle = document.getElementById('galleryModalTitle');
+                this.modalDescription = this.modal.querySelector('.image-description');
+                this.modalClose = document.getElementById('galleryModalClose');
+                this.prevBtn = document.getElementById('galleryPrevBtn');
+                this.nextBtn = document.getElementById('galleryNextBtn');
+                this.currentIndexEl = document.getElementById('galleryCurrentIndex');
+                this.totalEl = document.getElementById('galleryTotalImages');
+                this.fullscreenBtn = document.getElementById('galleryFullscreenBtn');
+                this.imageLoading = this.modal.querySelector('.image-loading');
+                this.imageError = this.modal.querySelector('.image-error');
+                this.retryBtn = this.modal.querySelector('.retry-btn');
+                this.backdrop = this.modal.querySelector('.modal-backdrop');
+
+                this.thumbnails = document.querySelectorAll('.gallery-thumbnail');
+                this.images = [];
+                this.currentIndex = 0;
+                this.isOpen = false;
+                this.isFullscreen = false;
+                this.touchStartX = 0;
+                this.isLoading = false;
+
+                this.init();
+            }
+
+            init() {
+                this.setupEventListeners();
+                this.setupAccessibility();
+            }
+
+            setupEventListeners() {
+                this.thumbnails.forEach(thumb => {
+                    thumb.addEventListener('click', () => this.openModal(thumb));
+                    thumb.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            this.openModal(thumb);
+                        }
+                    });
+                });
+
+                this.modalClose.addEventListener('click', () => this.closeModal());
+                this.prevBtn.addEventListener('click', () => this.previousImage());
+                this.nextBtn.addEventListener('click', () => this.nextImage());
+                this.backdrop.addEventListener('click', () => this.closeModal());
+                this.fullscreenBtn.addEventListener('click', () => this.toggleFullscreen());
+                this.retryBtn.addEventListener('click', () => this.retryLoad());
+
+                document.addEventListener('keydown', (e) => this.handleKeydown(e));
+
+                this.modal.addEventListener('touchstart', (e) => { this.touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+                this.modal.addEventListener('touchend', (e) => {
+                    const diff = e.changedTouches[0].screenX - this.touchStartX;
+                    if (Math.abs(diff) > 50) { diff > 0 ? this.previousImage() : this.nextImage(); }
+                }, { passive: true });
+
+                this.modal.querySelector('.modal-container').addEventListener('click', (e) => e.stopPropagation());
+
+                document.addEventListener('fullscreenchange', () => this.handleFullscreenChange());
+                document.addEventListener('webkitfullscreenchange', () => this.handleFullscreenChange());
+            }
+
+            setupAccessibility() {
+                this.thumbnails.forEach((thumb, index) => {
+                    thumb.setAttribute('role', 'button');
+                    thumb.setAttribute('tabindex', '0');
+                    if (!thumb.getAttribute('aria-label')) {
+                        thumb.setAttribute('aria-label', `View image ${index + 1}: ${thumb.dataset.title}`);
+                    }
+                });
+            }
+
+            openModal(thumbnail) {
+                const categoryPanel = thumbnail.closest('.gallery-category');
+                const categoryThumbnails = categoryPanel ? categoryPanel.querySelectorAll('.gallery-thumbnail') : this.thumbnails;
+
+                this.images = Array.from(categoryThumbnails).map(thumb => ({
+                    src: thumb.dataset.image,
+                    title: thumb.dataset.title,
+                    description: thumb.dataset.description,
+                    thumbnail: thumb
+                }));
+                this.currentIndex = Array.from(categoryThumbnails).indexOf(thumbnail);
+
+                if (this.totalEl) {
+                    this.totalEl.textContent = this.images.length;
+                }
+
+                this.isOpen = true;
+                this.updateContent();
+                this.modal.classList.add('active');
+                this.modal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                this.modalClose.focus();
+                this.loadImage();
+            }
+
+            closeModal() {
+                if (!this.isOpen) return;
+                this.isOpen = false;
+                this.modal.classList.remove('active');
+                this.modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                if (this.isFullscreen) this.exitFullscreen();
+                const thumb = this.images[this.currentIndex] && this.images[this.currentIndex].thumbnail;
+                if (thumb) thumb.focus();
+            }
+
+            updateContent() {
+                const img = this.images[this.currentIndex];
+                this.modalTitle.textContent = img.title;
+                this.modal.querySelector('.image-title').textContent = img.title;
+                if (this.modalDescription) this.modalDescription.textContent = img.description;
+                if (this.currentIndexEl) this.currentIndexEl.textContent = this.currentIndex + 1;
+                this.prevBtn.disabled = this.currentIndex === 0;
+                this.nextBtn.disabled = this.currentIndex === this.images.length - 1;
+            }
+
+            loadImage() {
+                if (this.isLoading) return;
+                this.isLoading = true;
+                const current = this.images[this.currentIndex];
+                this.imageLoading.style.display = 'block';
+                this.modalImage.classList.remove('loaded');
+
+                const img = new Image();
+                img.onload = () => {
+                    this.modalImage.src = img.src;
+                    this.modalImage.alt = current.title;
+                    this.modalImage.classList.add('loaded');
+                    this.imageLoading.style.display = 'none';
+                    this.imageError.style.display = 'none';
+                    this.isLoading = false;
+                    this.preloadAdjacent();
+                };
+                img.onerror = () => {
+                    this.imageLoading.style.display = 'none';
+                    this.imageError.style.display = 'block';
+                    this.isLoading = false;
+                };
+                img.src = current.src;
+            }
+
+            preloadAdjacent() {
+                [this.currentIndex - 1, this.currentIndex + 1].forEach(i => {
+                    if (i >= 0 && i < this.images.length) {
+                        const pre = new Image();
+                        pre.src = this.images[i].src;
+                    }
+                });
+            }
+
+            retryLoad() {
+                this.imageError.style.display = 'none';
+                this.loadImage();
+            }
+
+            previousImage() {
+                if (this.currentIndex > 0) {
+                    this.currentIndex--;
+                    this.updateContent();
+                    this.loadImage();
+                }
+            }
+
+            nextImage() {
+                if (this.currentIndex < this.images.length - 1) {
+                    this.currentIndex++;
+                    this.updateContent();
+                    this.loadImage();
+                }
+            }
+
+            handleKeydown(e) {
+                if (!this.isOpen) return;
+                switch (e.key) {
+                    case 'Escape': e.preventDefault(); this.closeModal(); break;
+                    case 'ArrowLeft': e.preventDefault(); this.previousImage(); break;
+                    case 'ArrowRight': e.preventDefault(); this.nextImage(); break;
+                    case 'Home': e.preventDefault(); this.currentIndex = 0; this.updateContent(); this.loadImage(); break;
+                    case 'End': e.preventDefault(); this.currentIndex = this.images.length - 1; this.updateContent(); this.loadImage(); break;
+                    case 'f': case 'F':
+                        if (!e.ctrlKey && !e.metaKey) { e.preventDefault(); this.toggleFullscreen(); }
+                        break;
+                }
+            }
+
+            toggleFullscreen() {
+                if (this.isFullscreen) { this.exitFullscreen(); } else { this.enterFullscreen(); }
+            }
+
+            enterFullscreen() {
+                const el = this.modal;
+                const req = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+                if (req) { req.call(el); this.isFullscreen = true; this.modal.classList.add('fullscreen'); }
+            }
+
+            exitFullscreen() {
+                const exit = document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen || document.msExitFullscreen;
+                if (exit) { exit.call(document); }
+                this.isFullscreen = false;
+                this.modal.classList.remove('fullscreen');
+            }
+
+            handleFullscreenChange() {
+                if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                    this.isFullscreen = false;
+                    this.modal.classList.remove('fullscreen');
+                }
+            }
+        }
+
         // Initialize Office Gallery Modal
         let officeGalleryModal;
         document.addEventListener('DOMContentLoaded', () => {
@@ -2832,6 +3094,17 @@
                 awardsGalleryModal = new AwardsGalleryModal();
             }
         });
+
+        // Initialize Gallery Section (tabs + modal)
+        let galleryModal;
+        document.addEventListener('DOMContentLoaded', () => {
+            const gallerySection = document.querySelector('.gallery-section');
+            if (gallerySection) {
+                new GalleryTabs();
+                galleryModal = new GalleryModal();
+            }
+        });
+
 
         // Cleanup on page unload
         window.addEventListener('beforeunload', () => {
